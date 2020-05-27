@@ -56,7 +56,7 @@ class Project extends Component {
                status="status-active"
                percent="30"
                nameProject={item.name}
-               keyProject={item.keyTopic}
+               nameProject={item.name}
              />
             )}
           </div>

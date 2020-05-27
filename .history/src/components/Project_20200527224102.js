@@ -5,14 +5,11 @@ import Menu from "./Menu";
 import ProjectDetail from "./ProjectDetail";
 import Nav from "./Nav";
 import { db } from "../firebaseConnect";
-import store from "./store";
 
 class Project extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      mytopics:[]
-    }
+    
   }
   componentDidMount() {
    
@@ -50,15 +47,21 @@ class Project extends Component {
               <span className="start">Start</span>
               <span className="dates">Deadline</span>
             </div>
-            {this.state.mytopics.map((item,key)=>
-               <ProjectDetail
-               statusText="In Progress"
-               status="status-active"
-               percent="30"
-               nameProject={item.name}
-               keyProject={item.keyTopic}
-             />
-            )}
+            <ProjectDetail
+              statusText="In Progress"
+              status="status-active"
+              percent="30"
+            />
+            {/* <ProjectDetail
+              statusText="Complete"
+              status="status-complete"
+              percent="100"
+            />
+            <ProjectDetail
+              statusText="In Progress"
+              status="status-active"
+              percent="0"
+            /> */}
           </div>
         </div>
       </div>

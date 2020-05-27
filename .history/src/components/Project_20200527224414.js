@@ -50,15 +50,29 @@ class Project extends Component {
               <span className="start">Start</span>
               <span className="dates">Deadline</span>
             </div>
-            {this.state.mytopics.map((item,key)=>
+            {this.state.mytopics.map((value,key)=>{
                <ProjectDetail
                statusText="In Progress"
                status="status-active"
                percent="30"
-               nameProject={item.name}
-               keyProject={item.keyTopic}
+               nameProject
              />
-            )}
+            })}
+            <ProjectDetail
+              statusText="In Progress"
+              status="status-active"
+              percent="30"
+            />
+            {/* <ProjectDetail
+              statusText="Complete"
+              status="status-complete"
+              percent="100"
+            />
+            <ProjectDetail
+              statusText="In Progress"
+              status="status-active"
+              percent="0"
+            /> */}
           </div>
         </div>
       </div>

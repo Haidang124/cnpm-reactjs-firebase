@@ -53,9 +53,6 @@ class CourseDetail extends Component {
       keyTopic: keyTopic,
       uidCreator: store.getState().userAuth.uid,
       member: [],
-      alltaskProject:[],
-      completeTaskProject:[],
-      fileProject :[],
     };
     console.log(newTopic);
     this.state.topic.push(newTopic);
@@ -113,7 +110,6 @@ class CourseDetail extends Component {
             topic: this.state.topic,
           };
           db.collection("topics").doc(this.state.codeCourse).update(newdata);
-          db.collection("users").doc(store.getState().userAuth.uid).update(newmydata);
           alert("Bạn tham gia thành công");
         }
       }

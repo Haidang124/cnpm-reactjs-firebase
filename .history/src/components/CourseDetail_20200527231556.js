@@ -53,9 +53,8 @@ class CourseDetail extends Component {
       keyTopic: keyTopic,
       uidCreator: store.getState().userAuth.uid,
       member: [],
-      alltaskProject:[],
-      completeTaskProject:[],
-      fileProject :[],
+      taskProject:[],
+      
     };
     console.log(newTopic);
     this.state.topic.push(newTopic);

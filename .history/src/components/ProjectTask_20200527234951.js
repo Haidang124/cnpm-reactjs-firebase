@@ -27,7 +27,7 @@ class ProjectTask extends Component {
     });
   };
   render() {
-    alert(this.props.match.params.keyProject)
+    alert(this.props.match)
     return (
       <div className="project-task">
         <Menu />

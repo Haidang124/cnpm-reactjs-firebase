@@ -75,11 +75,12 @@ class ProjectDetail extends Component {
           <span>21/6/2020</span>
         </div>
         <div className="link-function">
-              <Link to={"/Project-tasks/" + this.props.keyProject+".html"} >Tasks</Link>
+              <Link to="Project-tasks"  >Tasks</Link>
+              {"/Course-detail/" + this.props.codeCourse+".html"}
               <Link to="Project-analysis">Analysis</Link>
               <Link to="Chat">Chat</Link>
               <Link to="Project-out">Out</Link>
-               {/*  "Project-tasks" onClick={()=>{alert(this.props.keyProject)}}*/}
+               {/*  onClick={()=>{alert(this.props.keyProject)}}*/}
         </div>
       </div>
     );

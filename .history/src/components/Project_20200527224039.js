@@ -4,24 +4,39 @@ import "./../css/nav.css";
 import Menu from "./Menu";
 import ProjectDetail from "./ProjectDetail";
 import Nav from "./Nav";
-import { db } from "../firebaseConnect";
-import store from "./store";
 
 class Project extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      mytopics:[]
-    }
+    
   }
   componentDidMount() {
-   
+    //get post from database
+    this.getPost("courses", this.props.match.params.code, "post", "post");
+    db.collection("courses")
+      .doc(this.props.match.params.code)
+      .onSnapshot((doc) => {
+        this.setState({
+          post: doc.data().post,
+        });
+      });
       db.collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {
         this.setState({
           mytopics: doc.data().mytopics,
         });
+      });
+    //get topic from database
+    this.getPost("topics", this.props.match.params.code, "topic", "topic");
+    db.collection("topics")
+      .doc(this.state.codeCourse)
+      .onSnapshot((doc) => {
+        if (typeof doc.data().topic !== "undefined") {
+          this.setState({
+            topic: doc.data().topic,
+          });
+        }
       });
   }
   render() {
@@ -50,15 +65,21 @@ class Project extends Component {
               <span className="start">Start</span>
               <span className="dates">Deadline</span>
             </div>
-            {this.state.mytopics.map((item,key)=>
-               <ProjectDetail
-               statusText="In Progress"
-               status="status-active"
-               percent="30"
-               nameProject={item.name}
-               keyProject={item.keyTopic}
-             />
-            )}
+            <ProjectDetail
+              statusText="In Progress"
+              status="status-active"
+              percent="30"
+            />
+            {/* <ProjectDetail
+              statusText="Complete"
+              status="status-complete"
+              percent="100"
+            />
+            <ProjectDetail
+              statusText="In Progress"
+              status="status-active"
+              percent="0"
+            /> */}
           </div>
         </div>
       </div>

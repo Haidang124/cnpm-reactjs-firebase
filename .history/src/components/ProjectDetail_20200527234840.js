@@ -76,6 +76,7 @@ class ProjectDetail extends Component {
         </div>
         <div className="link-function">
               <Link to={"/Project-tasks/" + this.props.keyProject+".html"} >Tasks</Link>
+              
               <Link to="Project-analysis">Analysis</Link>
               <Link to="Chat">Chat</Link>
               <Link to="Project-out">Out</Link>

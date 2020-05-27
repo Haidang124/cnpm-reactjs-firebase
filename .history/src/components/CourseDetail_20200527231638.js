@@ -55,7 +55,7 @@ class CourseDetail extends Component {
       member: [],
       alltaskProject:[],
       completeTaskProject:[],
-      fileProject :[],
+      fileP
     };
     console.log(newTopic);
     this.state.topic.push(newTopic);
