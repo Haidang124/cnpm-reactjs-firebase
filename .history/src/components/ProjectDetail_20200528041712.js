@@ -57,8 +57,9 @@ class ProjectDetail extends Component {
             <Link
               to={"/Members/" + this.props.codeCourses + "." + 0 + ".html"}
             >
-              Members
+              Out
             </Link>
+          </Button>
           {/*  "Project-tasks" onClick={()=>{alert(this.props.keyProject)}}*/}
         </div>
       </div>

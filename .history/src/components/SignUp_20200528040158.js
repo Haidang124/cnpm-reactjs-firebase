@@ -34,13 +34,13 @@ class SignUp extends Component {
        var firstName = this.state.firstName;
        var lastName = this.state.lastName;
        var msv = this.state.msv;
-       var mychat = this.state.mychat;
-       var mytopics = this.state.mytopics;
-       var myfriends = this.state.myfriends;
-       var mytasks = this.state.mytasks;
+       var mychat = this.state.chat;
+       var mytopics = this.state.topics;
+       var myfriends = this.state.friends;
+       var tasks = this.state.tasks;
       const { user } = await auth.createUserWithEmailAndPassword(email, password)
       // alert("Account successfully created");
-      generateUserDocument(user, {firstName,lastName,msv,mychat,mytasks,mytopics,myfriends});
+      generateUserDocument(user, {firstName,lastName,msv,chat,tasks,topics,friends});
     } catch (error) {
       alert(error);
       this.setState({error:"Error Signing up with email and password"});

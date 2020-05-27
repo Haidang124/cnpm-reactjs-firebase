@@ -61,7 +61,7 @@ class Project extends Component {
                deadlineProject={item.deadlineProject}
               //  deadlineProject={item.deadlineProject}
              />
-            )):(<p></p>)}
+            ))}
           </div>
         </div>
       </div>

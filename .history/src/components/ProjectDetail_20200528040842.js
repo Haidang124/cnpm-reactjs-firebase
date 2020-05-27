@@ -52,13 +52,14 @@ class ProjectDetail extends Component {
             Tasks
           </Link>
           <Link to="Project-analysis">Analysis</Link>
-          <Link to="Chat">Chat</Link>
-          
+          {/* <Link to="Chat">Chat</Link> */}
+          <Button color="link">
             <Link
               to={"/Members/" + this.props.codeCourses + "." + 0 + ".html"}
             >
-              Members
+              Member
             </Link>
+          </Button>
           {/*  "Project-tasks" onClick={()=>{alert(this.props.keyProject)}}*/}
         </div>
       </div>

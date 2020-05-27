@@ -40,7 +40,7 @@ class SignUp extends Component {
        var mytasks = this.state.mytasks;
       const { user } = await auth.createUserWithEmailAndPassword(email, password)
       // alert("Account successfully created");
-      generateUserDocument(user, {firstName,lastName,msv,mychat,mytasks,mytopics,myfriends});
+      generateUserDocument(user, {firstName,lastName,msv,mychat,mytasks,topics,friends});
     } catch (error) {
       alert(error);
       this.setState({error:"Error Signing up with email and password"});

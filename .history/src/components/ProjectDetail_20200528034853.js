@@ -40,26 +40,23 @@ class ProjectDetail extends Component {
           <span>{this.props.deadlineProject}</span>
         </div>
         <div className="link-function">
-          <Link
-            to={
-              "/Project-tasks/" +
-              this.props.codeCourses +
-              "/" +
-              this.props.keyProject +
-              ".html"
-            }
-          >
-            Tasks
-          </Link>
-          <Link to="Project-analysis">Analysis</Link>
-          <Link to="Chat">Chat</Link>
-          
-            <Link
-              to={"/Members/" + this.props.codeCourses + "." + 0 + ".html"}
-            >
-              Members
-            </Link>
-          {/*  "Project-tasks" onClick={()=>{alert(this.props.keyProject)}}*/}
+              <Link to={"/Project-tasks/" +this.props.codeCourses+"/"+ this.props.keyProject+".html"} >Tasks</Link>
+              <Link to="Project-analysis">Analysis</Link>
+              <Link to="Chat">Chat</Link>
+              <Button color="link">
+                          <Link
+                            to={
+                              "/Members/" +
+                              this.state.codeCourse +
+                              "." +
+                              key +
+                              ".html"
+                            }
+                          >
+                            Member
+                          </Link>
+                        </Button>
+               {/*  "Project-tasks" onClick={()=>{alert(this.props.keyProject)}}*/}
         </div>
       </div>
     );
