@@ -1,6 +1,6 @@
 .project-task{
     display: flex;
-    /* overflow: scroll; */
+    overflow: scroll;
 }
 .container-project-task {
     padding-top: 15px;

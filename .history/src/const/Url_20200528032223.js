@@ -43,6 +43,7 @@ class Url extends Component {
               <Member />
             </Route> */}
             <Route exact path="/Members/:code.:key.html" component={Member}/>
+            <Route exact path="/Chat/:code.:key.html" component={Member}/>
             <Route exact path="/Chat">
               <Chat />
             </Route>
@@ -59,7 +60,7 @@ class Url extends Component {
             <Route exact path="/Project">
               <Project />
             </Route> 
-            
+            <Route exact path="/Project-tasks/:codeCourses/:keyProject.html" component={ProjectTask}/>
             <Route exact path="/Profile">
               <Profile />
             </Route>

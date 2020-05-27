@@ -86,7 +86,7 @@ class ProjectTask extends Component {
     return (
       <div className="project-task">
         <Menu />
-        <div>
+        <div className="my-navbar">
           <Nav />
           <div className="container-project-task">
             <div className="all-project-task">

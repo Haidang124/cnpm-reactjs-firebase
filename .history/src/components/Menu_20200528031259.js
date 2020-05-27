@@ -47,8 +47,24 @@ class Menu extends Component {
         console.log("Error getting document:", error);
       });
   }
- 
+  // componentDidUpdate()
+  // {
+  //   db.collection("users")
+  //     .doc(this.state.uid)
+  //     .onSnapshot((doc) => {
+  //       console.log(doc.data())
+  //       // console.log(store.getState().userProfile.msv) 
+  //       this.props.setProfile(doc.data());
+  //       this.setState({
+  //         msv:doc.data().msv,
+  //         username:doc.data().firstName+" "+doc.data().lastName
+
+  //       })
+  //       // console.log(store.getState().userProfile.msv) 
+  //     });
+  // }
   render() {
+    // console.log(this.state.msv)
     return (
       <div>
         <div className="container-left">
@@ -119,7 +135,14 @@ class Menu extends Component {
             <div
               className="sign-out"
               onClick={() => {
+                // await this.getdata();
+
+                // console.log(this.state.mycourse);
                 auth.signOut();
+                // this.update();
+                // this.update1();
+                // this.getdata();
+                // getdata();
               }}
             >
               <span>SIGN OUT </span>

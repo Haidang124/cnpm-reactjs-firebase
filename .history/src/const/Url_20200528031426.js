@@ -56,10 +56,10 @@ class Url extends Component {
             {/* <Route exact path="/Project-tasks">
               <ProjectTask />
             </Route>  */}
-            <Route exact path="/Project">
+            <Route exact path="/Project/keyProject.html" component={ProjectTask}/>
+            {/* <Route exact path="/Project">
               <Project />
-            </Route> 
-            
+            </Route>  */}
             <Route exact path="/Profile">
               <Profile />
             </Route>

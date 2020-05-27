@@ -484,9 +484,17 @@ class CourseDetail extends Component {
                             Member
                           </Link>
                         </Button>
-                        <Button color="link">
-                            Edit
-                          </Button>
+                        <Button color="link"><Link
+                            to={
+                              "/Members/" +
+                              this.state.codeCourse +
+                              "." +
+                              key +
+                              ".html"
+                            }
+                          >
+                            Member
+                          </Link></Button>
                         <Button
                           color="link"
                           onClick={() =>

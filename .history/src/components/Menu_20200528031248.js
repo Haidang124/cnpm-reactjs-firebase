@@ -9,11 +9,62 @@ class Menu extends Component {
   constructor(props) {
     super(props);
     this.state = {
+      // mycourse: "123",
+      // username:  store.getState().userProfile.firstName+" "
+      // +store.getState().userProfile.lastName,
+      // msv : store.getState().userProfile.msv
       username: "",
       msv : "",
       uid:store.getState().userAuth.uid
     };
   }
+ 
+  // getdata = async () => {
+
+  //   db.collection("users").doc("4ypZrnY1CFbUoDeIyYRPoKpCeDQ2")
+  // .get()
+  // .then((doc) => {
+  //   if (doc.exists) {
+  //     console.log("Document data:", doc.data());
+  //     this.setState({
+  //       mycourse:doc.data()
+  //     })
+  //     console.log("!23")
+  //     console.log(this.state.mycourse)
+  //   } else {
+  //     // doc.data() will be undefined in this case
+  //     console.log("No such document!");
+  //   }
+  // }).catch(function(error) {
+  //   console.log("Error getting document:", error);
+  // });
+
+  // };
+  // update = () => {
+  //   db.collection("users")
+  //     .doc("49MAY6NUpDWPreJOhM47PV0VF0i2")
+  //     .update(docData1);
+  // };
+  // update1 = () => {
+  //   db.collection("users").doc("4ypZrnY1CFbUoDeIyYRPoKpCeDQ2").update(docData1);
+  // };
+  // getdata = () => {
+  //   var docRef = db.collection("users").doc("4ypZrnY1CFbUoDeIyYRPoKpCeDQ2");
+
+  //   docRef
+  //     .get()
+  //     .then(function (doc) {
+  //       if (doc.exists) {
+  //         // console.log("Document data:", doc.data().Courses.pes);
+  //         var mydata = doc.data()
+  //       } else {
+  //         console.log("No such document!");
+  //       }
+  //     })
+  //     .catch(function (error) {
+  //       console.log("Error getting document:", error);
+  //     });
+  // };
   componentDidMount() {
     db.collection("users")
       .doc(this.state.uid)
@@ -31,6 +82,7 @@ class Menu extends Component {
       .then((doc) => {
         if (doc.exists) {
           if (typeof doc.data().courses !== 'undefined' && doc.data().courses.length > 0) {
+            // courses(typeof doc.data().courses)
             console.log("nounder")
           }
           else{
@@ -47,8 +99,24 @@ class Menu extends Component {
         console.log("Error getting document:", error);
       });
   }
- 
+  // componentDidUpdate()
+  // {
+  //   db.collection("users")
+  //     .doc(this.state.uid)
+  //     .onSnapshot((doc) => {
+  //       console.log(doc.data())
+  //       // console.log(store.getState().userProfile.msv) 
+  //       this.props.setProfile(doc.data());
+  //       this.setState({
+  //         msv:doc.data().msv,
+  //         username:doc.data().firstName+" "+doc.data().lastName
+
+  //       })
+  //       // console.log(store.getState().userProfile.msv) 
+  //     });
+  // }
   render() {
+    // console.log(this.state.msv)
     return (
       <div>
         <div className="container-left">
@@ -119,7 +187,14 @@ class Menu extends Component {
             <div
               className="sign-out"
               onClick={() => {
+                // await this.getdata();
+
+                // console.log(this.state.mycourse);
                 auth.signOut();
+                // this.update();
+                // this.update1();
+                // this.getdata();
+                // getdata();
               }}
             >
               <span>SIGN OUT </span>

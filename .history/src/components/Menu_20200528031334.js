@@ -99,7 +99,7 @@ class Menu extends Component {
                 <div>
                   <i className="fas fa-tasks" />
                   <span>
-                    <Link to="/Project">Project</Link>
+                    <Link to="/Project/.h">Project</Link>
                   </span>
                 </div>
                 <div>

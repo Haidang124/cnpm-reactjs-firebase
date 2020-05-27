@@ -119,6 +119,9 @@ class Menu extends Component {
             <div
               className="sign-out"
               onClick={() => {
+                // await this.getdata();
+
+                // console.log(this.state.mycourse);
                 auth.signOut();
               }}
             >

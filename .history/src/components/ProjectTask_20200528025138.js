@@ -84,9 +84,9 @@ class ProjectTask extends Component {
   render() {
     // alert(this.props.match.params.codeCourses)
     return (
-      <div className="project-task">
+      <div className="container project-task">
         <Menu />
-        <div>
+        <div className="my-navbar">
           <Nav />
           <div className="container-project-task">
             <div className="all-project-task">

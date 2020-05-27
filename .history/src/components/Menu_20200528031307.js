@@ -60,8 +60,6 @@ class Menu extends Component {
             />
             <div className="textInfo">
               <span className="name">
-                {/* {store.getState().userProfile.firstName}{" "}
-                {store.getState().userProfile.lastName} */}
                 {this.state.username}
               </span>
               <span className="msv">
@@ -119,7 +117,14 @@ class Menu extends Component {
             <div
               className="sign-out"
               onClick={() => {
+                // await this.getdata();
+
+                // console.log(this.state.mycourse);
                 auth.signOut();
+                // this.update();
+                // this.update1();
+                // this.getdata();
+                // getdata();
               }}
             >
               <span>SIGN OUT </span>

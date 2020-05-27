@@ -485,8 +485,9 @@ class CourseDetail extends Component {
                           </Link>
                         </Button>
                         <Button color="link">
+                           
                             Edit
-                          </Button>
+                          <></Button>
                         <Button
                           color="link"
                           onClick={() =>
