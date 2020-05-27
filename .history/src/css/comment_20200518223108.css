@@ -1,0 +1,160 @@
+.container-comment {
+  background-color: white;
+  margin: 20px;
+  padding: 15px 10px;
+  width: 600px;
+  /* border: 2px solid #eee; */
+  box-shadow: 0px 0px 4px #202020;
+  border-radius: 15px;
+}
+
+.container-comment i {
+  font-size: 30px;
+  margin: 0 10px;
+}
+
+.logo {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+}
+.logo-reply {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.info-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.name-comment {
+  margin: 5px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+}
+.name-comment .name-user {
+  font-weight: 700;
+  font-size: 17px;
+  color: #6eb1e5;
+}
+.name-comment .time-comment {
+  color: grey;
+  font-size: 14px;
+}
+.fa-remove {
+  color: #cc0000;
+}
+.fa-remove:hover{
+  color: red;
+}
+.fa-comment {
+  color: #007bff;
+}
+.fa-comment:hover {
+  color: blue;
+}
+.fa-heart {
+  color: red;
+}
+.fa-heart:hover {
+  color: #cc0000;
+}
+.fa-edit {
+  color: #ffbb61;
+}
+.fa-edit:hover{
+  color: orangered;
+}
+
+#addComment:focus{
+  outline: none;
+}
+.name-comment .time {
+  font-size: 12px;
+  margin-top: 5px;
+}
+.numberComment-icon{
+  display: flex;
+}
+.numberLikeComment{
+  margin-left: 200px;
+  font-size: 15px;
+  color: #007bff;
+}
+.numberLike{
+  margin-right: 20px;
+  /* text-decoration: none; */
+}
+.numberLike:hover{
+  /* margin-right: 20px; */
+  color: blue;
+  text-decoration: none;
+}
+.content-comment {
+  margin: 15px 10px;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.content-comment .title-comment {
+  font-weight: bold;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+.comment-comment .content-comment {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+}
+
+.comment-comment .content-comment img {
+  margin-right: 15px;
+}
+.comment-comment input:focus{
+  outline:none
+}
+.comment-comment .content-comment .reply {
+  margin-top: 8px;
+  font-size: 14px;
+  color: gray;
+}
+
+.comment-comment .content-comment .reply span {
+  margin-left: 10px;
+}
+
+.comment-comment .content-comment .content-time span {
+  display: inline;
+}
+
+.comment-comment .content-comment .content-time .name-comment {
+  font-size: 15px;
+  margin-left: 10px;
+  font-weight: bold;
+  color: #6eb1e3;
+}
+
+.comment-comment input {
+  display: block;
+  height: 35px;
+  width: 580px;
+  margin: 8px auto;
+  border-radius: 5px;
+  padding: 8px;
+}
+.content-time span {
+  display: inline-block;
+  margin-right: 2px;
+}
+
+/*# sourceMappingURL=style.css.map */

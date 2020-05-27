@@ -1,0 +1,12 @@
+.column-task{
+    width: 700px;
+}
+.row-task{
+    margin-left: 10px;
+}
+.Mytask{
+    display: flex;
+}
+.my-navbar .row{
+    margin: 40px 20px;
+}

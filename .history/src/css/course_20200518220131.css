@@ -1,0 +1,11 @@
+.blockquote p {
+  font-size: 15px;
+}
+.container-right h3 {
+  font-weight: 700;
+  margin: 12px;
+  display: flex;
+  justify-content: center;
+  color: #6eb1e5;
+  font-size: 25px;
+}

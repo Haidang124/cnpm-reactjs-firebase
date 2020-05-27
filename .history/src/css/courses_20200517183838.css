@@ -1,0 +1,20 @@
+.courses {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container-right {
+  margin-left: 10px;
+}
+
+.allCourse {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.row {
+  margin-bottom: 5px;
+}
+/*# sourceMappingURL=courses.css.map */

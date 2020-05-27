@@ -1,0 +1,266 @@
+html,
+body {
+  font-style: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.container-member {
+  height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+
+.container-right {
+  width: 100%;
+  font-size: 20px;
+}
+
+.container-right .right-top {
+  height: 10%;
+  padding: 20px 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-shadow: 2px 2px #eee;
+          box-shadow: 2px 2px #eee;
+}
+
+.container-right .right-top .member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.container-right .right-top .member button {
+  background-color: #0053ff;
+  color: floralwhite;
+}
+
+.container-right .right-top .member button:hover {
+  background-color: #1e2648;
+}
+
+.container-right .right-top .member .member-avatars {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.container-right .right-top .member .member-avatars .number-member {
+  width: 40px;
+  height: 40px;
+  background-color: black;
+  border-radius: 50%;
+  color: floralwhite;
+  position: relative;
+  margin-right: 10px;
+}
+
+.container-right .right-top .member .member-avatars .number-member span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.right-bottom {
+  padding: 30px 40px;
+}
+
+.right-bottom span {
+  font-weight: bold;
+}
+
+.right-bottom .input-seach {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin: 2px 0;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.input i{
+  color: #6eb1e5;
+  font-size: 29px;
+
+}
+.input input{
+ padding: 5px;
+ margin-left: 15px;
+}
+/* .right-bottom .input-seach .btn-seach {
+  margin-left: 40px;
+} */
+
+.right-bottom .databases {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.right-bottom .content-database {
+  width: 80%;
+}
+
+.right-bottom .user {
+  margin-bottom: 10px;
+}
+
+.right-bottom .database,
+.right-bottom .user {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 100px 200px 200px 200px 100px;
+      grid-template-columns: 100px 200px 200px 200px 100px;
+  -ms-grid-rows: 20px;
+      grid-template-rows: 20px;
+}
+
+.right-bottom .database .msv,
+.right-bottom .user .msv {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+}
+
+.right-bottom .database .name,
+.right-bottom .user .name {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+}
+
+.right-bottom .database .email,
+.right-bottom .user .email {
+  -ms-grid-column: 3;
+  -ms-grid-column-span: 1;
+  grid-column: 3 / 4;
+}
+
+.right-bottom .database .permission,
+.right-bottom .user .permission {
+  -ms-grid-column: 4;
+  -ms-grid-column-span: 1;
+  grid-column: 4 / 5;
+}
+
+.right-bottom .database .edit-remove,
+.right-bottom .user .edit-remove {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-grid-column: 5;
+  -ms-grid-column-span: 1;
+  grid-column: 5 / 6;
+}
+
+.right-bottom .database .edit-remove i,
+.right-bottom .user .edit-remove i {
+  font-size: 20px;
+  margin: 0 20px;
+}
+
+.right-bottom .database .edit-remove .fa-edit,
+.right-bottom .user .edit-remove .fa-edit {
+  position: relative;
+  color: #ffbb61;
+}
+
+.right-bottom .database .edit-remove .fa-remove,
+.right-bottom .user .edit-remove .fa-remove {
+  position: relative;
+  color: red;
+}
+
+.right-bottom .database .edit-remove .fa-edit::after,
+.right-bottom .user .edit-remove .fa-edit::after {
+  content: "Edit";
+  position: absolute;
+  top: 20px;
+  font-size: 13px;
+  color: grey;
+  display: none;
+}
+
+.right-bottom .database .edit-remove .fa-remove::after,
+.right-bottom .user .edit-remove .fa-remove::after {
+  content: "Remove";
+  position: absolute;
+  top: 20px;
+  font-size: 13px;
+  color: grey;
+  display: none;
+}
+
+.right-bottom .database .edit-remove .fa-remove:hover::after,
+.right-bottom .user .edit-remove .fa-remove:hover::after {
+  display: inline;
+}
+
+.right-bottom .database .edit-remove .fa-edit:hover::after,
+.right-bottom .user .edit-remove .fa-edit:hover::after {
+  display: inline;
+}
+
+.right-bottom .database.titile-database,
+.right-bottom .user.titile-database {
+  margin-bottom: 30px;
+  color: grey;
+  font-weight: bold;
+}
+
+.right-bottom .database.users-database,
+.right-bottom .user.users-database {
+  font-size: 15px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.right-bottom .input-database {
+  width: 20%;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  text-align: center;
+  color: grey;
+  font-weight: bold;
+  text-transform: uppercase;
+  display: none;
+}
+
+.right-bottom .input-database input,
+.right-bottom .input-database #permission {
+  padding: 10px;
+  margin: 5px 0;
+}
+
+.right-bottom .input-database .btn-input-data {
+  background-color: #0053ff;
+  padding: 10px;
+  color: white;
+}
+/*# sourceMappingURL=member.css.map */

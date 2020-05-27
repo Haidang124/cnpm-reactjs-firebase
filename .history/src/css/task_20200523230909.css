@@ -1,0 +1,9 @@
+.column-task{
+    width: 700px;
+}
+.row-task{
+    margin-left: 10px;
+}
+.Mytask{
+    display: flex;
+}

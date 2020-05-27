@@ -1,0 +1,16 @@
+
+class Mytask extends Component {
+    static propTypes = {
+        prop: PropTypes
+    }
+
+    render() {
+        return (
+            <div>
+                
+            </div>
+        )
+    }
+}
+
+export default Mytask

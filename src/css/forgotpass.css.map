@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,kBAAkB,CAClB;EACI,UAAU,EAAE,oBAAoB;EAChC,mBAAmB,EAAE,MAAM;EAC3B,eAAe,EAAE,GAAG;EACpB,iBAAiB,EAAE,SAAS;CAC/B",
+    "sources": [
+        "forgotpass.scss"
+    ],
+    "names": [],
+    "file": "forgotpass.css"
+}

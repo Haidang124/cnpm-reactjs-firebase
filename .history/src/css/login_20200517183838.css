@@ -1,0 +1,27 @@
+.container {
+  height: 600px;
+  width: 800px;
+  display: block;
+  margin: 20px auto 20px;
+}
+
+.container .btn {
+  border-radius: 30px;
+  color: white;
+}
+
+.container .btn.btn-google {
+  background-color: #ea4335;
+}
+
+.container .btn.btn-facebook {
+  background-color: #3b5998;
+}
+
+.bg-login-image {
+  background: url("../UET-01.png");
+  background-position: center;
+  background-size: 80%;
+  background-repeat: no-repeat;
+}
+/*# sourceMappingURL=login.css.map */

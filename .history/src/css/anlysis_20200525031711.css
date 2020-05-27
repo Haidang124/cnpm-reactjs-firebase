@@ -1,0 +1,12 @@
+.project-anlysis{
+    display: flex;
+}
+.card-body {
+    padding: 8px 0px;
+}
+.border-left-primary {
+    border-left: .25rem solid #4e73df!important;
+}
+.border-left-success {
+    border-left: .25rem solid #1cc88a!important;
+}

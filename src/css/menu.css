@@ -1,0 +1,110 @@
+.container-left {
+  width: 18rem;
+  background-color: #1e2632;
+  min-height: 700px;
+  height: 100%;
+}
+
+.container-left a {
+  color: grey;
+  text-decoration: none;
+}
+
+.container-left a:hover {
+  text-decoration: none;
+}
+
+.container-left .left-top {
+  height: 75px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  border-bottom: 1px solid #eee;
+}
+
+.container-left .left-top .avatar {
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.container-left .left-top .textInfo .name {
+  display: block;
+  font-size: 15px;
+  color: white;
+  margin-bottom: 5px;
+}
+
+.container-left .left-top .textInfo .msv {
+  color: grey;
+  font-size: 12px;
+}
+
+.container-left .left-bottom {
+  color: grey;
+  padding: 20px 0px;
+}
+
+.container-left .left-bottom ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 25px;
+  height: 50px;
+  border-bottom: 1px solid #eee;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.container-left .left-bottom ul li.active {
+  background-color: #fff;
+}
+
+.container-left .left-bottom ul li span {
+  margin-left: 5px;
+}
+
+.container-left .left-bottom .tasks {
+  padding: 3px;
+  text-align: center;
+  color: white;
+  border-radius: 50%;
+  background-color: blue;
+  font-size: 15px;
+  display: inline;
+  margin-right: 10px;
+}
+
+.sign-out {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #1e2648;
+  margin-top: 200px;
+  height: 50px;
+  width: 100%;
+}
+
+.sign-out span {
+  margin-right: 20px;
+}
+
+.sign-out:hover {
+  background-color: #1e268a;
+}
+/*# sourceMappingURL=menu.css.map */

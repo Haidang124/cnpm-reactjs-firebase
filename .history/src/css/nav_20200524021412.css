@@ -1,0 +1,9 @@
+.my-navbar{
+    width: 100%;
+    height: 75px;
+}
+.name-user-nav{
+    display: flex;
+    justify-self: center;
+    a
+}

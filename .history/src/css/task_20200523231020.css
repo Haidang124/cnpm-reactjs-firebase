@@ -1,0 +1,13 @@
+.column-task{
+    width: 700px;
+}
+.row-task{
+    margin-left: 10px;
+}
+.Mytask{
+    display: flex;
+}
+.my-navbar{
+    width: 100%;
+    height: 75px;
+}

@@ -1,0 +1,51 @@
+.project-anlysis {
+  display: flex;
+}
+.card-body-task {
+  padding: 8px 0px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-family: "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+  /* border-radius: 15px; */
+}
+.card-body-task {
+  padding: 8px 0px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  font-family: "Liberation Mono", "Courier New", monospace;
+  font-size: 13px;
+  /* border-radius: 15px; */
+}
+.text-gray-800 {
+    color: #5a5c69!important;
+}
+.border-left-primary {
+  border-left: 0.25rem solid #4e73df !important;
+}
+.border-left-success {
+  border-left: 0.25rem solid #1cc88a !important;
+}
+.border-left-info {
+  border-left: 0.25rem solid #36b9cc !important;
+}
+.border-left-warning {
+  border-left: 0.25rem solid #f6c23e !important;
+}
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-right: -0.75rem;
+  margin-left: -0.75rem;
+}
+
+.icon-task{
+    color: gray;
+}
+.process-anlysis{
+    height: 10px;
+    width: 100px;
+    background-color: gray;
+}

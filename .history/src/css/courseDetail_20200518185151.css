@@ -1,0 +1,167 @@
+.course-detail {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.comment-post{
+  display: flex;
+  flex-direction: column;
+}
+.content {
+  width: 600px;
+  height: 200px;
+  margin: 20px;
+  padding: 1px;
+  -webkit-box-shadow: 0px 0px 4px #202020;
+          box-shadow: 0px 0px 4px #202020;
+  border-radius: 5px;
+}
+
+.content textarea {
+  height: 100px;
+  width: 600px;
+}
+
+.content textarea:focus {
+  outline: none;
+}
+
+.content .btn-post {
+  background-color: #007bff;
+  width: 120px;
+  height: 35px;
+  border-radius: 15px;
+  color: wheat;
+}
+
+.content .btn-post:focus {
+  outline: none;
+}
+
+.title {
+  border-bottom: 1px solid #eee;
+  color: blue;
+  background-color: #f5f6f7;
+  padding: 5px;
+  font-weight: bold;
+}
+.shortcuts {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 20px 50px;
+  width: 300px;
+  padding: 10px 26px;
+  -webkit-box-shadow: 0px 0px 4px #202020;
+          box-shadow: 0px 0px 4px #202020;
+  border-radius: 10px;
+  height: 200px;
+}
+
+.shortcuts span {
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 10px;
+  font-size: 18px;
+}
+
+.shortcuts .quick {
+  font-weight: bold;
+  color: #6eb1e3;
+}
+.shortcuts .more .create-topic {
+  margin-left: 80px;
+}
+.shortcuts i {
+  color: gray;
+}
+.members {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  margin: 40px 50px;
+  width: 300px;
+  padding: 10px 26px;
+  -webkit-box-shadow: 0px 0px 4px #202020;
+          box-shadow: 0px 0px 4px #202020;
+  border-radius: 10px;
+}
+
+.members .title {
+  color: #6eb1e3;
+  font-weight: bold;
+  background-color: #e9ebee;
+  font-size: 18px;
+}
+
+.members span {
+  margin-bottom: 10px;
+  display: inline-block;
+  text-align: center;
+  margin-left: 4px;
+}
+
+.members .member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  margin-bottom: 8px;
+}
+
+.members .member .online {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: green;
+  margin-top: 20px;
+}
+
+.members .member .offline {
+  height: 8px;
+  width: 8px;
+  border-radius: 50%;
+  background-color: gray;
+  margin-top: 20px;
+}
+
+.members .member .name-member {
+  margin-top: 10px;
+  margin-right: 70px;
+  width: 150px;
+}
+.logo-reply{
+  background-color: red;
+}
+.members .member img {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.my-modal
+{
+  width: 1320px;
+  max-width: 1320px;
+}
+.my-modal .modal-header {
+  font-size: 25px;
+  display: flex;
+  justify-content: center;
+  border: none;
+}
+.my-modal .modal-header, .my-modal table thead tr {
+  color: #6eb1e5;
+  font-weight: 700;
+}
+.input-modal {
+  padding: 5px;
+  border-radius: 3px;
+}

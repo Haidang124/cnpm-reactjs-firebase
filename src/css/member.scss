@@ -1,0 +1,250 @@
+html,
+body {
+  font-style: 62.5%;
+  font-family: Arial, Helvetica, sans-serif;
+}
+.container-member {
+  height: 100%;
+  display: flex;
+}
+// start css menu 
+
+// .container-left {
+//   width: 18rem;
+//   background-color: #1e2632;
+//   min-height: 700px;
+//   height: 100%;
+//   & .left-top {
+//     // background-color: yellow;
+//     height: 10%;
+//     display: flex;
+//     align-items: center;
+//     // justify-content: space-between;
+//     padding: 10px;
+//     border-bottom: 1px solid #eee;
+//     & .avatar {
+//       height: 50px;
+//       width: 50px;
+//       border-radius: 50%;
+//       margin-right: 10px;
+//     }
+//     & .textInfo {
+//       & .name {
+//         display: block;
+//         font-size: 15px;
+//         color: white;
+//         margin-bottom: 5px;
+//       }
+//       & .msv {
+//         color: grey;
+//         font-size: 12px;
+//       }
+//     }
+//   }
+//   & .left-bottom {
+//     color: grey;
+//     padding: 20px 0px;
+
+//     & ul li {
+//       display: flex;
+//       padding: 0 25px;
+//       //color: white;
+//       //background-color: red;
+//       height: 50px;
+//       border-bottom: 1px solid #eee;
+//       align-items: center;
+//       justify-content: space-between;
+//       & span {
+//         margin-left: 5px;
+//       }
+//     }
+//     & .active {
+//       background-color: #fff;
+//     }
+//     & .tasks {
+//       color: white;
+//       border-radius: 50%;
+//       background-color: blue;
+//       font-size: 15px;
+//       display: inline;
+//       margin-right: 10px;
+//     }
+//   }
+// }
+// .sign-out {
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   background-color: #1e2648;
+//   margin-top: 200px;
+//   height: 50px;
+//   width: 100%;
+//   & span {
+//     margin-right: 20px;
+//   }
+// }
+// .sign-out:hover {
+//   background-color: #1e268a;
+// }
+
+// end css menu 
+.avatar {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.container-right {
+  width: 100%;
+  font-size: 20px;
+  //
+  & .right-top {
+    height: 10%;
+    // background-color: red;
+    padding: 20px 30px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    & .member {
+      // background-color: yellow;
+      & button {
+        background-color: #0053ff;
+        color: floralwhite;
+      }
+      & button:hover {
+        background-color: #1e2648;
+      }
+      & .member-avatars {
+        display: flex;
+        justify-content: center;
+        & .number-member {
+          width: 40px;
+          height: 40px;
+          background-color: black;
+          border-radius: 50%;
+          color: floralwhite;
+          position: relative;
+          margin-right: 10px;
+          & span {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+          }
+        }
+      }
+      display: flex;
+    }
+    //border-bottom: 1px solid #eee;
+    box-shadow: 2px 2px #eee;
+  }
+}
+.right-bottom {
+  padding: 40px;
+  & span {
+    font-weight: bold;
+  }
+  & .input-seach {
+    display: flex;
+    margin: 20px 0;
+    align-items: center;
+    & .btn-seach {
+      margin-left: 40px;
+    }
+  }
+  & .databases {
+    // background-color: red;
+    display: flex;
+  }
+  & .content-database {
+    width: 80%;
+    // background-color: red;
+  }
+  & .user {
+    margin-bottom: 10px;
+  }
+  & .database,
+  .user {
+    display: grid;
+    grid-template-columns: 100px 200px 200px 200px 100px;
+    grid-template-rows: 20px;
+    & .msv {
+      grid-column: 1 / 2;
+    }
+    & .name {
+      grid-column: 2 / 3;
+    }
+    & .email {
+      grid-column: 3 / 4;
+    }
+    & .permission {
+      grid-column: 4 / 5;
+    }
+    & .edit-remove {
+      display: flex;
+      grid-column: 5 / 6;
+      & i {
+        font-size: 20px;
+        margin: 0 20px;
+      }
+      & .fa-edit {
+        position: relative;
+        color: #ffbb61;
+      }
+      & .fa-remove {
+        position: relative;
+        color: red;
+      }
+      & .fa-edit::after {
+        content: "Edit";
+        position: absolute;
+        top: 20px;
+        font-size: 13px;
+        color: grey;
+        display: none;
+      }
+      & .fa-remove::after {
+        content: "Remove";
+        position: absolute;
+        top: 20px;
+        font-size: 13px;
+        color: grey;
+        display: none;
+      }
+      & .fa-remove:hover::after {
+        display: inline;
+      }
+      & .fa-edit:hover::after {
+        display: inline;
+      }
+    }
+    &.titile-database {
+      margin-bottom: 30px;
+      color: grey;
+      font-weight: bold;
+    }
+    &.users-database {
+      font-size: 15px;
+      display: flex;
+      flex-direction: column;
+    }
+  }
+  & .input-database {
+    width: 20%;
+    flex-direction: column;
+    text-align: center;
+    color: grey;
+    font-weight: bold;
+    text-transform: uppercase;
+    display: none;
+    & input,
+    #permission {
+      padding: 10px;
+      margin: 5px 0;
+    }
+    & .btn-input-data {
+      background-color: #0053ff;
+      padding: 10px;
+      color: white;
+    }
+  }
+}
