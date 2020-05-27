@@ -12,6 +12,7 @@ import {
 } from "reactstrap";
 import { db } from "../firebaseConnect";
 class ProjectDetail extends Component {
+ 
   render() {
     // alert(this.state.indexTopic)
     return (
@@ -56,7 +57,7 @@ class ProjectDetail extends Component {
           <Link to="Project-analysis">Analysis</Link>
           <Link to="Chat">Chat</Link>
             <Link
-              to={"/Members/" + this.props.codeCourses + "." + this.props.indexTopic + ".html"}
+              to={"/Members/" + this.props.codeCourses + "." + 0 + ".html"}
             >
               Members
             </Link>

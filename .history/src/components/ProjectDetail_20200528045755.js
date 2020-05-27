@@ -56,7 +56,7 @@ class ProjectDetail extends Component {
           <Link to="Project-analysis">Analysis</Link>
           <Link to="Chat">Chat</Link>
             <Link
-              to={"/Members/" + this.props.codeCourses + "." + this.props.indexTopic + ".html"}
+              to={"/Members/" + this.props.codeCourses + "." + indexTopic + ".html"}
             >
               Members
             </Link>

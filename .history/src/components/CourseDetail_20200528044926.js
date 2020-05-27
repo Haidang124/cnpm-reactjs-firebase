@@ -92,8 +92,8 @@ class CourseDetail extends Component {
         // console.log(this.checkJoin(key, uidUser));
         var newMyTopic = {
           name: item.name,
+          
           keyTopic: item.keyTopic,
-          indexTopic:key,
           codeCourses:item.codeCourses,
           deadlineProject:item.deadlineProject,
           uidCreator: store.getState().userAuth.uid,

@@ -93,7 +93,6 @@ class CourseDetail extends Component {
         var newMyTopic = {
           name: item.name,
           keyTopic: item.keyTopic,
-          indexTopic:key,
           codeCourses:item.codeCourses,
           deadlineProject:item.deadlineProject,
           uidCreator: store.getState().userAuth.uid,
@@ -486,6 +485,7 @@ class CourseDetail extends Component {
                           </Link>
                         </Button>
                         <Button color="link">
+                           
                             Edit
                           </Button>
                         <Button

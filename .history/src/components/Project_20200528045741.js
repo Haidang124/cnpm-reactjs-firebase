@@ -52,7 +52,7 @@ class Project extends Component {
             </div>
             {this.state.mytopics ? (this.state.mytopics.map((item,key)=>
                <ProjectDetail
-               indexTopic={item.indexTopic}
+               indexTopic=
                statusText="In Progress"
                status="status-active"
                percent="30"
