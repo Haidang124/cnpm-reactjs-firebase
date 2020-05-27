@@ -115,7 +115,7 @@ class ProjectTask extends Component {
               this.state.alltaskProject.map((item, key) => (
                 <div className="project-detail">
                   <div>{key+1}</div>
-                  <div>{item.nametask}</div>
+                  <div>{item.nameTask}</div>
                   <div>{item.description}</div>
                   <div>{item.creator}</div>
                   <div className="worker-task">

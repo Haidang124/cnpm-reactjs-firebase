@@ -21,8 +21,8 @@ class ProjectTask extends Component {
     this.state = {
       isOpenModal: false,
       alltaskProject: [],
-      fulldataTopic: [],
-      indexTopic: [],
+      fulldataTopic:[],
+      indexTopic:[],
     };
   }
 
@@ -51,20 +51,18 @@ class ProjectTask extends Component {
       deadlineTask: deadlineTask,
       keyTask: keyTask,
       // uidCreator: store.getState().userAuth.uid,
-      executor: valueExecutor,
+      executor:valueExecutor,
     };
-    this.state.fulldataTopic[this.state.indexTopic].alltaskProject.push(
-      newTask
-    );
-    document.getElementById("deadline-task").value = "";
-    document.getElementById("description-task").value = "";
-    document.getElementById("name-task").value = "";
-    var newdata = {
-      topic: this.state.fulldataTopic,
-    };
-    db.collection("topics")
-      .doc(this.props.match.params.codeCourses)
-      .update(newdata);
+    console.log(this.state.fulldataTopic)
+    console.log(this.state.alltaskProject)
+    // this.state.fulldataTopic[this.state.indexTopic].addTaskProject.push(newTask);
+    // document.getElementById("deadline-task").value = "";
+    // document.getElementById("description-task").value = "";
+    // document.getElementById("name-task").value = "";
+    // var newdata = {
+    //   fulldataTopic: this.state.fulldataTopic,
+    // };
+    //  db.collection("topics").doc(this.props.match.params.codeCourses).update(newdata);
   };
   componentDidMount() {
     db.collection("topics")
@@ -74,8 +72,8 @@ class ProjectTask extends Component {
           if (item.keyTopic == this.props.match.params.keyProject) {
             this.setState({
               alltaskProject: doc.data().topic[key].alltaskProject,
-              fulldataTopic: doc.data().topic,
-              indexTopic: key,
+              fulldataTopic:doc.data().topic,
+              indexTopic:key,
             });
           }
         });
@@ -112,23 +110,25 @@ class ProjectTask extends Component {
               <span></span>
             </div>
             {this.state.alltaskProject ? (
-              this.state.alltaskProject.map((item, key) => (
+              this.state.alltaskProject.map(() => (
                 <div className="project-detail">
-                  <div>{key+1}</div>
-                  <div>{item.nametask}</div>
-                  <div>{item.description}</div>
-                  <div>{item.creator}</div>
+                  <div></div>
+                  <div>editPost</div>
+                  <div>
+                    Thêm chức năng chỉnh sửa bài viết trong component Course
+                  </div>
+                  <div>Nhóm trưởng</div>
                   <div className="worker-task">
                     <img
                       src="https://randomuser.me/api/portraits/men/44.jpg"
                       className="avatar"
                     />
-                    <span>{item.executor}</span>
+                    <span>Hải Đăng</span>
                   </div>
                   <div>
                     <input type="checkbox" className="status-checkbox" />
                   </div>
-                  <div>{item.deadlineTask}</div>
+                  <div>30/5/2020</div>
                   <div>
                     <Link to="/">Upload</Link>
                   </div>
@@ -259,10 +259,10 @@ class ProjectTask extends Component {
                       id="number-topic"
                     /> */}
                     <select className="input-modal" id="executor-task">
-                      <option value="Hải Đăng">Hải Đăng</option>
-                      <option value="Nguyễn Hoàng">Nguyễn Hoàng</option>
-                      <option value="Tiến Đạt">Tiến Đạt</option>
-                      <option value="Quang Tài">Quang Tài</option>
+                      <option value="volvo">Hải Đăng</option>
+                      <option value="saab">Nguyễn Hoàng</option>
+                      <option value="mercedes">Tiến Đạt</option>
+                      <option value="audi">Quang Tài</option>
                     </select>
                   </th>
                   <th>

@@ -4,7 +4,6 @@ import "./../css/nav.css";
 import Menu from "./Menu";
 import ProjectDetail from "./ProjectDetail";
 import Nav from "./Nav";
-import { v4 as uuidv4 } from "uuid";
 import {
   Button,
   Modal,
@@ -20,9 +19,7 @@ class ProjectTask extends Component {
     super(props);
     this.state = {
       isOpenModal: false,
-      alltaskProject: [],
-      fulldataTopic: [],
-      indexTopic: [],
+      alltaskProject:[],
     };
   }
 
@@ -31,56 +28,30 @@ class ProjectTask extends Component {
       isOpenModal: !this.state.isOpenModal,
     });
   };
-  addTaskProject = () => {
+  addTaskProject =()=>{
     this.openModal();
     var nametask = document.getElementById("name-task").value;
-    var description = document.getElementById("description-task").value;
-    // var creator = document.getElementById("creator-task").value;
-    var creator = document.getElementById("creator-task");
-    var valueCreator = creator.options[creator.selectedIndex].value;
-    // var text = creator.options[e.selectedIndex].text;
-    // var executor = document.getElementById("executor-task").value;
-    var executor = document.getElementById("executor-task");
-    var valueExecutor = executor.options[executor.selectedIndex].value;
+    var description = document.getElementById("c").value;
+    var creator = document.getElementById("creator-task").value;
+    var executor = document.getElementById("executor-task").value;
     var deadlineTask = document.getElementById("deadline-task").value;
-    var keyTask = uuidv4();
-    var newTask = {
-      nametask: nametask,
-      description: description,
-      creator: valueCreator,
-      deadlineTask: deadlineTask,
-      keyTask: keyTask,
-      // uidCreator: store.getState().userAuth.uid,
-      executor: valueExecutor,
-    };
-    this.state.fulldataTopic[this.state.indexTopic].alltaskProject.push(
-      newTask
-    );
-    document.getElementById("deadline-task").value = "";
-    document.getElementById("description-task").value = "";
-    document.getElementById("name-task").value = "";
-    var newdata = {
-      topic: this.state.fulldataTopic,
-    };
-    db.collection("topics")
-      .doc(this.props.match.params.codeCourses)
-      .update(newdata);
-  };
-  componentDidMount() {
-    db.collection("topics")
-      .doc(this.props.match.params.codeCourses)
-      .onSnapshot((doc) => {
-        doc.data().topic.map((item, key) => {
-          if (item.keyTopic == this.props.match.params.keyProject) {
-            this.setState({
-              alltaskProject: doc.data().topic[key].alltaskProject,
-              fulldataTopic: doc.data().topic,
-              indexTopic: key,
-            });
-          }
-        });
-      });
+    // var keyTopic = uuidv4();
   }
+  componentDidMount() {
+   
+    db.collection("topics")
+    .doc(this.props.match.params.codeCourses)
+    .onSnapshot((doc) => {
+      doc.data().topic.map((item,key)=>{
+        if(item.keyTopic == this.props.match.params.keyProject)
+        {
+          this.setState({
+            alltaskProject: doc.data().topic[key].alltaskProject,
+          });
+        }
+      })
+    });
+ }
   render() {
     // alert(this.props.match.params.codeCourses)
     return (
@@ -111,33 +82,29 @@ class ProjectTask extends Component {
               <span className="dates">Hạn Nộp</span>
               <span></span>
             </div>
-            {this.state.alltaskProject ? (
-              this.state.alltaskProject.map((item, key) => (
-                <div className="project-detail">
-                  <div>{key+1}</div>
-                  <div>{item.nametask}</div>
-                  <div>{item.description}</div>
-                  <div>{item.creator}</div>
-                  <div className="worker-task">
-                    <img
-                      src="https://randomuser.me/api/portraits/men/44.jpg"
-                      className="avatar"
-                    />
-                    <span>{item.executor}</span>
-                  </div>
-                  <div>
-                    <input type="checkbox" className="status-checkbox" />
-                  </div>
-                  <div>{item.deadlineTask}</div>
-                  <div>
-                    <Link to="/">Upload</Link>
-                  </div>
-                </div>
-              ))
-            ) : (
-              <p></p>
-            )}
-
+            {this.state.alltaskProject ? this.state.alltaskProject.map(()=>(<div className="project-detail">
+              <div></div>
+              <div>editPost</div>
+              <div>
+                Thêm chức năng chỉnh sửa bài viết trong component Course
+              </div>
+              <div>Nhóm trưởng</div>
+              <div className="worker-task">
+                <img
+                  src="https://randomuser.me/api/portraits/men/44.jpg"
+                  className="avatar"
+                />
+                <span>Hải Đăng</span>
+              </div>
+              <div>
+                <input type="checkbox" className="status-checkbox" />
+              </div>
+              <div>30/5/2020</div>
+              <div>
+                <Link to="/">Upload</Link>
+              </div>
+            </div>)):(<p></p>)}
+            
             {/*<div className="project-detail">
               <div>1</div>
               <div>editPost</div>
@@ -236,7 +203,7 @@ class ProjectTask extends Component {
                       type="text"
                       placeholder="Mô tả"
                       className="input-modal"
-                      id="description-task"
+                      id="name-topic"
                     />
                   </th>
                   <th>
@@ -246,7 +213,7 @@ class ProjectTask extends Component {
                       className="input-modal"
                       id="creator-topic"
                     /> */}
-                    <select className="input-modal" id="creator-task">
+                    <select className="input-modal">
                       <option value="Nhóm trưởng">Nhóm trưởng</option>
                       <option value="Giáo viên">Giáo viên</option>
                     </select>
@@ -258,11 +225,11 @@ class ProjectTask extends Component {
                       className="input-modal"
                       id="number-topic"
                     /> */}
-                    <select className="input-modal" id="executor-task">
-                      <option value="Hải Đăng">Hải Đăng</option>
-                      <option value="Nguyễn Hoàng">Nguyễn Hoàng</option>
-                      <option value="Tiến Đạt">Tiến Đạt</option>
-                      <option value="Quang Tài">Quang Tài</option>
+                    <select className="input-modal">
+                      <option value="volvo">Hải Đăng</option>
+                      <option value="saab">Nguyễn Hoàng</option>
+                      <option value="mercedes">Tiến Đạt</option>
+                      <option value="audi">Quang Tài</option>
                     </select>
                   </th>
                   <th>
@@ -270,7 +237,7 @@ class ProjectTask extends Component {
                       type="text"
                       placeholder="Hạn Nộp"
                       className="input-modal"
-                      id="deadline-task"
+                      id="time-topic"
                     />
                   </th>
                 </tr>
