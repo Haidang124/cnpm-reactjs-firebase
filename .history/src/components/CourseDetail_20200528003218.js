@@ -43,7 +43,7 @@ class CourseDetail extends Component {
     var name = document.getElementById("name-topic").value;
     var number = document.getElementById("number-topic").value;
     var creator = document.getElementById("creator-topic").value;
-    var deadlineProject = document.getElementById("deadlineProject-topic").value;
+    var time = document.getElementById("deadlineProject-topic").value;
     var keyTopic = uuidv4();
     var newTopic = {
       name: name,
@@ -94,7 +94,6 @@ class CourseDetail extends Component {
           name: item.name,
           keyTopic: item.keyTopic,
           codeCourses:item.codeCourses,
-          deadlineProject:item.deadlineProject,
           uidCreator: store.getState().userAuth.uid,
         };
         this.state.mytopics.push(newMyTopic);
@@ -440,7 +439,7 @@ class CourseDetail extends Component {
                       type="text"
                       placeholder="Hạn Nộp"
                       className="input-modal"
-                      id="deadlineProject-topic"
+                      id="time-topic"
                     />
                   </th>
                   <th>
@@ -457,7 +456,7 @@ class CourseDetail extends Component {
                     <td>{item.name}</td>
                     <td>{item.creator}</td>
                     <td>{item.number}</td>
-                    <td>{item.deadlineProject}</td>
+                    <td>{item.time}</td>
                     <th>
                       <ButtonGroup>
                         <Button

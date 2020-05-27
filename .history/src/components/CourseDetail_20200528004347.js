@@ -94,7 +94,7 @@ class CourseDetail extends Component {
           name: item.name,
           keyTopic: item.keyTopic,
           codeCourses:item.codeCourses,
-          deadlineProject:item.deadlineProject,
+          deadlineProject:item.
           uidCreator: store.getState().userAuth.uid,
         };
         this.state.mytopics.push(newMyTopic);

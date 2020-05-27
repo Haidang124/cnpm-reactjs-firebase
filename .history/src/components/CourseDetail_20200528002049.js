@@ -63,7 +63,7 @@ class CourseDetail extends Component {
     document.getElementById("name-topic").value = "";
     document.getElementById("number-topic").value = "";
     document.getElementById("creator-topic").value = "";
-    document.getElementById("deadlineProject-topic").value = "";
+    document.getElementById("time-topic").value = "";
     var newdata = {
       topic: this.state.topic,
     };
@@ -93,7 +93,7 @@ class CourseDetail extends Component {
         var newMyTopic = {
           name: item.name,
           keyTopic: item.keyTopic,
-          codeCourses:item.codeCourses,
+          codeCourses:item.codeCourse,
           deadlineProject:item.deadlineProject,
           uidCreator: store.getState().userAuth.uid,
         };
@@ -440,7 +440,7 @@ class CourseDetail extends Component {
                       type="text"
                       placeholder="Hạn Nộp"
                       className="input-modal"
-                      id="deadlineProject-topic"
+                      id="time-topic"
                     />
                   </th>
                   <th>

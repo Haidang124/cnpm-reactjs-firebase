@@ -58,7 +58,7 @@ class Project extends Component {
                nameProject={item.name}
                keyProject={item.keyTopic}
                codeCourses={item.codeCourses}
-               deadlineProject={item.deadlineProject}
+               codeCourses={item.codeCourses}
               //  deadlineProject={item.deadlineProject}
              />
             )}

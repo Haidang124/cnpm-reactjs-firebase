@@ -66,13 +66,13 @@ class ProjectDetail extends Component {
           </div>
         </div>
         <div className="coures-project-detail">
-          <span>{this.props.codeCourses}</span>
+          <span>{this.props.codeCours}</span>
         </div>
         <div className="start-project-detail">
           <span>13/1/2020</span>
         </div>
         <div className="deadline-project-detail">
-          <span>{this.props.deadlineProject}</span>
+          <span>21/6/2020</span>
         </div>
         <div className="link-function">
               <Link to={"/Project-tasks/" + this.props.keyProject+".html"} >Tasks</Link>

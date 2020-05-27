@@ -57,9 +57,7 @@ class Project extends Component {
                percent="30"
                nameProject={item.name}
                keyProject={item.keyTopic}
-               codeCourses={item.codeCourses}
-               deadlineProject={item.deadlineProject}
-              //  deadlineProject={item.deadlineProject}
+               codeCourses={item.co}
              />
             )}
           </div>
