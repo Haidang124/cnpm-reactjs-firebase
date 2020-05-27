@@ -88,7 +88,7 @@ class Menu extends Component {
               />
               <Submenu
                 lefticon="fas fa-book"
-                nametask="Tasks"
+                nametask="MyTasks"
                 righticon="fas fa-align-justify"
                 active=""
               />

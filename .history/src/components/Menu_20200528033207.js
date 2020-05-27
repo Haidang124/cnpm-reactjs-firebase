@@ -10,8 +10,8 @@ class Menu extends Component {
     super(props);
     this.state = {
       username: "",
-      msv: "",
-      uid: store.getState().userAuth.uid,
+      msv : "",
+      uid:store.getState().userAuth.uid
     };
   }
   componentDidMount() {
@@ -19,9 +19,10 @@ class Menu extends Component {
       .doc(this.state.uid)
       .onSnapshot((doc) => {
         this.setState({
-          msv: doc.data().msv,
-          username: doc.data().firstName + " " + doc.data().lastName,
-        });
+          msv:doc.data().msv,
+          username:doc.data().firstName+" "+doc.data().lastName
+
+        })
         this.props.setProfile(doc.data());
       });
     var docRef = db.collection("users").doc(this.state.uid);
@@ -29,14 +30,14 @@ class Menu extends Component {
       .get()
       .then((doc) => {
         if (doc.exists) {
-          if (
-            typeof doc.data().courses !== "undefined" &&
-            doc.data().courses.length > 0
-          ) {
-            console.log("nounder");
-          } else {
-            console.log("under");
-            db.collection("users").doc(this.state.uid).update({ courses: [] });
+          if (typeof doc.data().courses !== 'undefined' && doc.data().courses.length > 0) {
+            console.log("nounder")
+          }
+          else{
+            console.log("under")
+            db.collection("users")
+              .doc(this.state.uid)
+              .update({ courses: [] });
           }
         } else {
           console.log("No such document!");
@@ -46,7 +47,7 @@ class Menu extends Component {
         console.log("Error getting document:", error);
       });
   }
-
+ 
   render() {
     return (
       <div>
@@ -63,7 +64,9 @@ class Menu extends Component {
                 {store.getState().userProfile.lastName} */}
                 {this.state.username}
               </span>
-              <span className="msv">Personal Msv: {this.state.msv}</span>
+              <span className="msv">
+                Personal Msv: {this.state.msv}
+              </span>
             </div>
           </div>
           <div className="left-bottom">
@@ -74,12 +77,12 @@ class Menu extends Component {
                 righticon="fas fa-align-justify"
                 active=""
               />
-              <Submenu
+              {/* <Submenu
                 lefticon="fas fa-users"
                 nametask="Courses"
                 righticon="fas fa-align-justify"
                 active=""
-              />
+              /> */}
               <Submenu
                 lefticon="fab fa-facebook-messenger"
                 nametask="Chat"
@@ -128,20 +131,20 @@ class Menu extends Component {
     );
   }
 }
-const mapDispatchToProps = (dispatch, ownProps) => {
+const mapDispatchToProps = (dispatch , ownProps) =>{
   return {
-    setUser: (useCurrent) => {
+    setUser : (useCurrent) => {
       dispatch({
-        type: "setUser",
-        userParameter: useCurrent,
-      });
+        type:"setUser",
+        userParameter :useCurrent
+      })
     },
     setProfile: (profileParameter) => {
       dispatch({
         type: "setProfile",
         profileParameter: profileParameter,
       });
-    },
-  };
-};
-export default connect(null, mapDispatchToProps)(Menu);
+    }
+  }
+}
+ export default connect( null,mapDispatchToProps)(Menu);

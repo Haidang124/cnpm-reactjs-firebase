@@ -8,7 +8,8 @@ class Submenu extends Component {
        <li >
           <div>
             <i className={this.props.lefticon} />
-            <span><Link to={"/"+this.props.nametask}>{this.props.nametask}</Link></span>
+            <span><Link to="">{this.props.nametask}</Link></span>
+             {/* <span onClick={()=>console.log("da click")}>{this.props.nametask}</span> */}
           </div>
           <i className={this.props.righticon} />
         </li>

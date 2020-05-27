@@ -74,12 +74,22 @@ class Menu extends Component {
                 righticon="fas fa-align-justify"
                 active=""
               />
-              <Submenu
+              {/* <Submenu
                 lefticon="fas fa-users"
                 nametask="Courses"
                 righticon="fas fa-align-justify"
                 active=""
-              />
+              /> */}
+              <li>
+                <div>
+                  <i className={this.props.lefticon} />
+                  <span>
+                    <Link to="/Courses">{this.props.nametask}</Link>
+                  </span>
+                  {/* <span onClick={()=>console.log("da click")}>{this.props.nametask}</span> */}
+                </div>
+                <i className={this.props.righticon} />
+              </li>
               <Submenu
                 lefticon="fab fa-facebook-messenger"
                 nametask="Chat"

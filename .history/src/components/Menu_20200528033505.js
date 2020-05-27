@@ -80,6 +80,7 @@ class Menu extends Component {
                 righticon="fas fa-align-justify"
                 active=""
               />
+             
               <Submenu
                 lefticon="fab fa-facebook-messenger"
                 nametask="Chat"
