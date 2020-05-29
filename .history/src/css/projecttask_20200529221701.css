@@ -1,0 +1,168 @@
+.project-task{
+    display: flex;
+}
+.container-project-task {
+    padding-top: 15px;
+    -webkit-box-shadow: 0px 0px 4px black;
+            box-shadow: 0px 0px 4px black;
+    margin: 60px 20px;
+    border-radius: 8px;
+    width: 1020px;
+    background-color: white;
+  }
+  
+  .container-project-task hr {
+    margin: 10px 0px 0px 2px;
+  }
+  
+  .container-project-task .all-project-task {
+    margin-left: 40px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    margin-bottom: 5px;
+    display: flex;
+     align-items: center;
+    /* justify-content: center;  */
+    justify-content: space-around;
+    flex-direction: row-reverse;
+    /* overflow: hidden; */
+    color: #6eb0e4;
+  }
+  
+  .container-project-task .all-project-task i {
+    font-size: 30px;
+    margin-right: 15px;
+    color: blue;
+
+  }
+  
+  .container-project-task .all-project-task  .name-project-task {
+    font-weight: bold;
+    font-size: 20px;
+  
+  }
+  
+  .container-project-task .all-project-task  .Selection {
+    color: #bebfc4;
+    font-size: 12px;
+    margin-top: 7px;
+    font-weight: bold;
+  }
+  .container-project-task .all-project-task  .Selection span {
+    /* margin-left: 10px; */
+    margin: 5px;
+  }
+  .container-project-task .title-project-task {
+    color: #6eb1e5;
+    padding: 20px;
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 50px 120px 200px 150px 150px  100px 100px 50px;
+        grid-template-columns: 50px 120px 200px 150px 150px  100px 100px 50px;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    font-weight: bold;
+    border-bottom: 2px solid #eee;
+  }
+  
+  .container-project-task .title-project-task .btn-add-project {
+    width: 100px;
+    height: 30px;
+    background-color: #059ef9;
+    color: whitesmoke;
+    border-radius: 10px;
+  }
+  
+  .container-project-task .title-project-task .btn-add-project:focus {
+    outline: none;
+  }
+  
+  .container-project-task .project-detail {
+    border-bottom: 2px solid #eee;
+    
+    color: #4e4c54;
+    
+    display: -ms-grid;
+    display: grid;
+    -ms-grid-columns: 70px 150px 200px 150px 150px 100px 100px 50px;
+        grid-template-columns: 70px 150px 200px 150px 150px 100px 100px 50px;
+    padding: 20px;
+  }
+  .container-project-task .project-detail div {
+    padding: 5px 7px 0px 0px;
+    display: flex;
+    align-items: center;
+}
+  .container-project-task .project-detail .name-project-task-detail {
+    font-weight: bold;
+  }
+  
+  .container-project-task .project-detail .process-project-detail {
+    height: 12px;
+    width: 100px;
+    background-color: #edf2f3;
+    border-radius: 7px;
+  }
+  
+  .container-project-task .project-detail .process-project-detail .now-process {
+    background-color: #13d4cd;
+    height: 12px;
+    /* width: 60px; */
+    border-radius: 7px;
+    font-size: 10px;
+    padding-left: 10px;
+  }
+  
+  .container-project-task .project-detail .status-project-detail {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+  }
+  
+  .container-project-task .project-detail .status-project-detail .status-complete {
+    height: 10px;
+    width: 10px;
+    background-color: #23ac00;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .container-project-task .project-detail .status-project-detail .status-active {
+    height: 10px;
+    width: 10px;
+    background-color: #5ed7d0;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .container-project-task .project-detail .status-project-detail .status-planned {
+    height: 10px;
+    width: 10px;
+    background-color: #ff4f20;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  .status-checkbox{
+    margin-left: 10px;
+    transform: scale(1.5);
+  }
+  .worker-task{
+    display: flex;
+    align-items: center;
+  }
+  .worker-task span{
+   margin-left: 5px;
+  }
+  /* select#gender option[value="male"]   { background-image:url(male.png);   }
+  select#gender option[value="female"] { background-image:url(female.png); }
+  select#gender option[value="others"] { background-image:url(others.png); } */
+  /* row task */
+  /* .column-task{
+     
+      width: 700px;
+  }
+  .row-task{
+      margin-left: 10px;
+  } */
