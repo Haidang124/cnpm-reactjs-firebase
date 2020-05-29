@@ -231,13 +231,11 @@ class ProjectTask extends Component {
                   <div>{item.deadlineTask}</div>
                   <div>
                   {item.status == "Complete" ? (
-                      <Link>
-                        Completed
+                      <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>
+                        Start
                       </Link>
                     ) : (
-                      <Link>
-                        Upload
-                      </Link>
+                      <p></p>
                     )}
                     {item.status == "Planned" ? (
                       <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>

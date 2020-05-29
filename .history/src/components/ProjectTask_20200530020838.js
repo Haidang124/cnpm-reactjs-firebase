@@ -232,12 +232,10 @@ class ProjectTask extends Component {
                   <div>
                   {item.status == "Complete" ? (
                       <Link>
-                        Completed
+                        Start
                       </Link>
                     ) : (
-                      <Link>
-                        Upload
-                      </Link>
+                      <p></p>
                     )}
                     {item.status == "Planned" ? (
                       <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>

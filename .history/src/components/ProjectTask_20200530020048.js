@@ -88,7 +88,7 @@ class ProjectTask extends Component {
     db.collection("topics")
       .doc(this.props.match.params.codeCourses)
       .update(newdata);
-      this.completeModal();
+      this.startModal();
   }
   completeModal = () => {
     this.setState({
@@ -230,15 +230,7 @@ class ProjectTask extends Component {
                   </div>
                   <div>{item.deadlineTask}</div>
                   <div>
-                  {item.status == "Complete" ? (
-                      <Link>
-                        Completed
-                      </Link>
-                    ) : (
-                      <Link>
-                        Upload
-                      </Link>
-                    )}
+                    <Link to="/">Upload</Link>
                     {item.status == "Planned" ? (
                       <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>
                         Start
@@ -352,7 +344,7 @@ class ProjectTask extends Component {
             <p>Bạn đã hoàn thành công việc ?</p>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"  onClick={this.completeTaskNow}>Completed</Button>
+            <Button color="primary"  onClick={this.startTaskNow}>Completed</Button>
             <Button color="secondary"  onClick={this.completeModal} >Close</Button>
           </ModalFooter>
         </Modal>

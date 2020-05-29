@@ -73,22 +73,22 @@ class ProjectTask extends Component {
     else alert("Bạn không thể hoàn thành công việc của người khác")
   }
   completeTaskNow=()=>{
-    this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].status="Complete";
-    var keyTask =this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].keyTask
-    this.state.fulldataTopic[this.state.indexTopic].processTaskProject.map((item,key)=>{
-      if(item.keyTask== keyTask)
-      {
-        this.state.fulldataTopic[this.state.indexTopic].completeTaskProject.push(item)
-        this.state.fulldataTopic[this.state.indexTopic].processTaskProject.splice(key, 1);
-      }
-    })
-    var newdata = {
-      topic: this.state.fulldataTopic,
-    };
-    db.collection("topics")
-      .doc(this.props.match.params.codeCourses)
-      .update(newdata);
-      this.completeModal();
+    // this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].status="Process";
+    // var keyTask =this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].keyTask
+    // this.state.fulldataTopic[this.state.indexTopic].planTaskProject.map((item,key)=>{
+    //   if(item.keyTask== keyTask)
+    //   {
+    //     this.state.fulldataTopic[this.state.indexTopic].processTaskProject.push(item)
+    //     this.state.fulldataTopic[this.state.indexTopic].planTaskProject.splice(key, 1);
+    //   }
+    // })
+    // var newdata = {
+    //   topic: this.state.fulldataTopic,
+    // };
+    // db.collection("topics")
+    //   .doc(this.props.match.params.codeCourses)
+    //   .update(newdata);
+    //   this.startModal();
   }
   completeModal = () => {
     this.setState({
@@ -230,15 +230,7 @@ class ProjectTask extends Component {
                   </div>
                   <div>{item.deadlineTask}</div>
                   <div>
-                  {item.status == "Complete" ? (
-                      <Link>
-                        Completed
-                      </Link>
-                    ) : (
-                      <Link>
-                        Upload
-                      </Link>
-                    )}
+                    <Link to="/">Upload</Link>
                     {item.status == "Planned" ? (
                       <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>
                         Start
@@ -247,7 +239,7 @@ class ProjectTask extends Component {
                       <p></p>
                     )}
                     {item.status == "Process" ? (
-                      <Link className="status-task" onClick={()=>this.completeTask(item.uidExecutor,key)}>
+                      <Link className="status-task" onClick={this.completeModal}>
                         Complete
                       </Link>
                     ) : (
@@ -352,7 +344,7 @@ class ProjectTask extends Component {
             <p>Bạn đã hoàn thành công việc ?</p>
           </ModalBody>
           <ModalFooter>
-            <Button color="primary"  onClick={this.completeTaskNow}>Completed</Button>
+            <Button color="primary"  onClick={this.completeModal}>Completed</Button>
             <Button color="secondary"  onClick={this.completeModal} >Close</Button>
           </ModalFooter>
         </Modal>

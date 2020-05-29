@@ -230,16 +230,8 @@ class ProjectTask extends Component {
                   </div>
                   <div>{item.deadlineTask}</div>
                   <div>
-                  {item.status == "Complete" ? (
-                      <Link>
-                        Completed
-                      </Link>
-                    ) : (
-                      <Link>
-                        Upload
-                      </Link>
-                    )}
                     {item.status == "Planned" ? (
+                      <Link to="/">Upload</Link>
                       <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>
                         Start
                       </Link>
@@ -247,6 +239,7 @@ class ProjectTask extends Component {
                       <p></p>
                     )}
                     {item.status == "Process" ? (
+                      <Link to="/">Upload</Link>
                       <Link className="status-task" onClick={()=>this.completeTask(item.uidExecutor,key)}>
                         Complete
                       </Link>

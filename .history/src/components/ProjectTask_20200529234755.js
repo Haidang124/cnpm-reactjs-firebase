@@ -15,86 +15,18 @@ import {
 } from "reactstrap";
 import { Link } from "react-router-dom";
 import { db } from "../firebaseConnect";
-import store from "./store";
 class ProjectTask extends Component {
   constructor(props) {
     super(props);
     this.state = {
       isOpenModal: false,
-      isStartModal: false,
-      // beganStart:false,
-      indexTask:[],
-      isCompleModal: false,
       alltaskProject: [],
       fulldataTopic: [],
       indexTopic: [],
-      member: [],
+      member:[],
     };
   }
-  startModal = () => {
-    this.setState({
-      isStartModal: !this.state.isStartModal,
-    });
-  };
-  startTask=(executor,index)=>{
-    if(executor == store.getState().userAuth.uid){
-        this.startModal();
-        this.setState({
-          indexTask:index
-        })
-    }
-    else alert("Bạn không thể bắt đầu công việc của người khác")
-  }
-  startTaskNow=()=>{
-    this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].status="Process";
-    var keyTask =this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].keyTask
-    this.state.fulldataTopic[this.state.indexTopic].planTaskProject.map((item,key)=>{
-      if(item.keyTask== keyTask)
-      {
-        this.state.fulldataTopic[this.state.indexTopic].processTaskProject.push(item)
-        this.state.fulldataTopic[this.state.indexTopic].planTaskProject.splice(key, 1);
-      }
-    })
-    var newdata = {
-      topic: this.state.fulldataTopic,
-    };
-    db.collection("topics")
-      .doc(this.props.match.params.codeCourses)
-      .update(newdata);
-      this.startModal();
-  }
-  completeTask=(executor,index)=>{
-    if(executor == store.getState().userAuth.uid){
-        this.completeModal();
-        this.setState({
-          indexTask:index
-        })
-    }
-    else alert("Bạn không thể hoàn thành công việc của người khác")
-  }
-  completeTaskNow=()=>{
-    this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].status="Complete";
-    var keyTask =this.state.fulldataTopic[this.state.indexTopic].alltaskProject[this.state.indexTask].keyTask
-    this.state.fulldataTopic[this.state.indexTopic].processTaskProject.map((item,key)=>{
-      if(item.keyTask== keyTask)
-      {
-        this.state.fulldataTopic[this.state.indexTopic].completeTaskProject.push(item)
-        this.state.fulldataTopic[this.state.indexTopic].processTaskProject.splice(key, 1);
-      }
-    })
-    var newdata = {
-      topic: this.state.fulldataTopic,
-    };
-    db.collection("topics")
-      .doc(this.props.match.params.codeCourses)
-      .update(newdata);
-      this.completeModal();
-  }
-  completeModal = () => {
-    this.setState({
-      isCompleModal: !this.state.isCompleModal,
-    });
-  };
+
   openModal = () => {
     this.setState({
       isOpenModal: !this.state.isOpenModal,
@@ -108,37 +40,31 @@ class ProjectTask extends Component {
     var valueCreator = creator.options[creator.selectedIndex].value;
     var executor = document.getElementById("executor-task");
     var valueExecutor = executor.options[executor.selectedIndex].value;
-    var textExecutor = executor.options[executor.selectedIndex].text;
     var status = document.getElementById("status-task");
     var valuestatus = status.options[status.selectedIndex].value;
     var deadlineTask = document.getElementById("deadline-task").value;
     var keyTask = uuidv4();
-    if (
-      nametask !== "" &&
-      description !== "" &&
-      valueExecutor !== "" &&
-      valueCreator !== "" &&
-      executor !== "" &&
-      deadlineTask !== ""
-    ) {
+    if(nametask !== "" && description !== "" && valueExecutor !== "" && valueCreator !== "" && executor !== "" &&  deadlineTask !=="")
+    {
       var newTask = {
         nametask: nametask,
         description: description,
         creator: valueCreator,
         deadlineTask: deadlineTask,
         keyTask: keyTask,
-        executor: textExecutor,
-        uidExecutor:valueExecutor,
-        status: valuestatus,
+        executor: valueExecutor,
+        status:valuestatus
       };
       this.state.fulldataTopic[this.state.indexTopic].alltaskProject.push(
         newTask
       );
-      if (valuestatus == "Planned") {
+      if(valuestatus =="Planned")
+      {
         this.state.fulldataTopic[this.state.indexTopic].planTaskProject.push(
           newTask
         );
-      } else {
+      }
+      else{
         this.state.fulldataTopic[this.state.indexTopic].processTaskProject.push(
           newTask
         );
@@ -152,7 +78,8 @@ class ProjectTask extends Component {
       db.collection("topics")
         .doc(this.props.match.params.codeCourses)
         .update(newdata);
-    } else alert("Vui lòng nhập đủ thông tin");
+    }
+    else alert("Vui lòng nhập đủ thông tin");
   };
   componentDidMount() {
     db.collection("topics")
@@ -164,7 +91,7 @@ class ProjectTask extends Component {
               alltaskProject: doc.data().topic[key].alltaskProject,
               fulldataTopic: doc.data().topic,
               indexTopic: key,
-              member: doc.data().topic[key].member,
+              member:doc.data().topic[key].member
             });
           }
         });
@@ -198,13 +125,12 @@ class ProjectTask extends Component {
               <span className="course">Người Thực Hiện</span>
               <span className="status">Trạng Thái</span>
               <span className="dates">Hạn Nộp</span>
-              <span className="func">Chức năng</span>
               <span></span>
             </div>
             {this.state.alltaskProject ? (
               this.state.alltaskProject.map((item, key) => (
                 <div className="project-detail">
-                  <div>{key + 1}</div>
+                  <div>{key+1}</div>
                   <div>{item.nametask}</div>
                   <div>{item.description}</div>
                   <div>{item.creator}</div>
@@ -216,43 +142,14 @@ class ProjectTask extends Component {
                     <span>{item.executor}</span>
                   </div>
                   <div>
-                    {item.status == "Complete" ? (
-                      <input
-                        type="checkbox"
-                        checked="true"
-                        className="status-checkbox mr-3"
-                      />
-                    ) : (
-                      <input type="checkbox" className="status-checkbox mr-3" />
-                    )}
-
+                    {/* <input type="checkbox" className="status-checkbox" /> */}
                     {item.status}
                   </div>
                   <div>{item.deadlineTask}</div>
                   <div>
-                  {item.status == "Complete" ? (
-                      <Link>
-                        Completed
-                      </Link>
-                    ) : (
-                      <Link>
-                        Upload
-                      </Link>
-                    )}
-                    {item.status == "Planned" ? (
-                      <Link className="status-task" onClick={()=>this.startTask(item.uidExecutor,key)}>
-                        Start
-                      </Link>
-                    ) : (
-                      <p></p>
-                    )}
-                    {item.status == "Process" ? (
-                      <Link className="status-task" onClick={()=>this.completeTask(item.uidExecutor,key)}>
-                        Complete
-                      </Link>
-                    ) : (
-                      <p></p>
-                    )}
+                    <Link to="/">Upload</Link>
+                   {item.status =="Planned" ? <Link className="status-task" onClick={this.openModal}>Start</Link> :<p></p>} 
+                   {item.status =="Process"  ? <Link className="status-task" onClick={this.openModal}>Complete</Link> :<p></p>} 
                   </div>
                 </div>
               ))
@@ -306,13 +203,13 @@ class ProjectTask extends Component {
                       <option value="Nguyễn Hoàng">Nguyễn Hoàng</option>
                       <option value="Tiến Đạt">Tiến Đạt</option>
                       <option value="Quang Tài">Quang Tài</option> */}
-                      {this.state.member.map((item, key) => (
-                        <option value={item.uidUser}>{item.user}</option>
-                      ))}
+                      {this.state.member.map((item,key)=>
+                         <option value={item.user}>{item.user}</option>
+                      )}
                     </select>
                   </th>
                   <th>
-                    <select className="input-modal" id="status-task">
+                  <select className="input-modal" id="status-task">
                       <option value="Planned">Dự định</option>
                       <option value="Process">Đang thực hiện</option> */}
                     </select>
@@ -336,24 +233,15 @@ class ProjectTask extends Component {
             </Button>
           </ModalFooter>
         </Modal>
-        <Modal isOpen={this.state.isStartModal}>
-          <ModalHeader>Xác nhận</ModalHeader>
-          <ModalBody className="isStart-task">
-            <p>Bạn có muốn bắt đầu công việc ngay bây giờ ?</p>
+        <Modal isOpen={this.state.isOpenModal} className="modal-create-toptic">
+          <ModalHeader>Bắt đầu công việc</ModalHeader>
+          <ModalBody>
+            
           </ModalBody>
           <ModalFooter>
-            <Button color="primary" onClick={this.startTaskNow}>Start Now</Button>
-            <Button color="secondary"  onClick={this.startModal} >Close</Button>
-          </ModalFooter>
-        </Modal>
-        <Modal isOpen={this.state.isCompleModal}>
-          <ModalHeader>Xác nhận</ModalHeader>
-          <ModalBody className="isStart-task">
-            <p>Bạn đã hoàn thành công việc ?</p>
-          </ModalBody>
-          <ModalFooter>
-            <Button color="primary"  onClick={this.completeTaskNow}>Completed</Button>
-            <Button color="secondary"  onClick={this.completeModal} >Close</Button>
+            <Button color="primary" onClick={this.openModal}>
+              Save changes
+            </Button>
           </ModalFooter>
         </Modal>
       </div>

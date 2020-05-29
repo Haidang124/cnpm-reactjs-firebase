@@ -161,6 +161,16 @@
   .isStart-task{
     min-height: 100px;
     font-size: 20px;
-    padding: 10px 25px;
+    padding: 10px ;
   }
-  
+  /* select#gender option[value="male"]   { background-image:url(male.png);   }
+  select#gender option[value="female"] { background-image:url(female.png); }
+  select#gender option[value="others"] { background-image:url(others.png); } */
+  /* row task */
+  /* .column-task{
+     
+      width: 700px;
+  }
+  .row-task{
+      margin-left: 10px;
+  } */

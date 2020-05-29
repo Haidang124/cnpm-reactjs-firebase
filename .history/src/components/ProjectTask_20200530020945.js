@@ -236,7 +236,7 @@ class ProjectTask extends Component {
                       </Link>
                     ) : (
                       <Link>
-                        Upload
+                        Completed
                       </Link>
                     )}
                     {item.status == "Planned" ? (
