@@ -5,71 +5,70 @@ import Menu from "./Menu";
 import Nav from "./Nav";
 import ChartPie from "./ChartPie";
 import { db } from "../firebaseConnect";
-import { Button } from "reactstrap";
-import { Pie } from "react-chartjs-2";
 class ProjectAnalysis extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      allTask: [],
-      completeTask: 0,
-      members: [],
-      plannedTask: 0,
-      processTask: 0,
+    this.state ={
+      allTask :[],
+      completeTask :0,
+      members:[],
+      plannedTask:0,
+      processTask:0,
+      data:[]
       chartDataPie: {
         datasets: [
           {
             label: "Population",
-            data: [12,5,3],
+            data: [1,1,1],
             backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
           },
         ],
       },
-    };
+      // chartDataPie : [
+      //   {label: "First", value: 50}, {label: "Second", value: 50 } ,
+      //   {label: "3", value: 50}, 
+      // ]
+    }
   }
+  
   componentDidMount() {
     db.collection("topics")
       .doc(this.props.match.params.code)
       .onSnapshot((doc) => {
-        if (
-          typeof doc.data().topic[this.props.match.params.key] !== "undefined"
-        ) {
-            var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject.length;
-            var processTask=doc.data().topic[this.props.match.params.key].processTaskProject.length;
-            var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject.length;
+        if (typeof doc.data().topic[this.props.match.params.key] !== "undefined") {
+          // var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject;
+          // var processTask=doc.data().topic[this.props.match.params.key].processTaskProject;
+          // var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject;
+          
           this.setState({
-            allTask: doc.data().topic[this.props.match.params.key]
-              .alltaskProject,
-            completeTask: doc.data().topic[this.props.match.params.key]
-              .completeTaskProject,
-            plannedTask: doc.data().topic[this.props.match.params.key]
-              .planTaskProject,
-            processTask: doc.data().topic[this.props.match.params.key]
-              .processTaskProject,
-            members: doc.data().topic[this.props.match.params.key].member,
-            // data:[doc.data().topic[this.props.match.params.key].planTaskProject.length, doc.data().topic[this.props.match.params.key].processTaskProject.length, doc.data().topic[this.props.match.params.key].completeTaskProject.length]
-            chartDataPie: {
-              datasets: [
-                {
-                  label: "Population",
-                  data: [plannedTask,processTask,completeTask],
-                  backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
-                },
-              ],
-            },
+            allTask :doc.data().topic[this.props.match.params.key].alltaskProject,
+            completeTask: doc.data().topic[this.props.match.params.key].completeTaskProject,
+            plannedTask: doc.data().topic[this.props.match.params.key].planTaskProject,
+            processTask: doc.data().topic[this.props.match.params.key].processTaskProject,
+            members :doc.data().topic[this.props.match.params.key].member,
+            // chartDataPie: {
+            //   datasets: [
+            //     {
+            //       label: "Population",
+            //       data: [plannedTask,processTask,completeTask],
+            //       backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
+            //     },
+            //   ],
+            // },
           });
         }
+       
       });
   }
   render() {
-    // console.log(this.state.plannedTask.length+" "+this.state.processTask.length+" "+this.state.completeTask.length)
+    console.log(this.state.plannedTask.length+" "+this.state.processTask.length+" "+this.state.completeTask.length)
     return (
       <div className="project-anlysis">
         <Menu />
         <div className="my-navbar">
           <Nav />
           <div className="row">
-            <div class="col-xl-3 col-md-6 mb-4">
+          <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-primary shadow h-100 py-2">
                 <div class="card-body-task">
                   <div class="row no-gutters align-items-center">
@@ -94,10 +93,10 @@ class ProjectAnalysis extends Component {
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-success text-uppercase mb-1">
-                        Number Members
+                       Number Members
                       </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        {this.state.members.length} Members
+                      {this.state.members.length} Members
                       </div>
                     </div>
                     <div class="col-auto">
@@ -116,24 +115,23 @@ class ProjectAnalysis extends Component {
                         Tasks
                       </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
-                        {this.state.completeTask.length}/
-                        {this.state.allTask.length}
+                      {this.state.completeTask.length}/{this.state.allTask.length}
                       </div>
                     </div>
                     <div class="col-auto">
-                      <i class="fa fa-list fa-2x text-gray-300 ml-5 icon-task"></i>
+                    <i class="fa fa-list fa-2x text-gray-300 ml-5 icon-task" ></i>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
-            <div class="col-xl-3 col-md-6 mb-4">
+             <div class="col-xl-3 col-md-6 mb-4">
               <div class="card border-left-warning shadow h-100 py-2">
                 <div class="card-body-task">
                   <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                       <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">
-                        Over The Deadline
+                      Over The Deadline
                       </div>
                       <div class="h5 mb-0 font-weight-bold text-gray-800">
                         2
@@ -152,8 +150,7 @@ class ProjectAnalysis extends Component {
               <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">
-                    File Manager{" "}
-                  </h6>
+                    File Manager                  </h6>
                   <div class="dropdown no-arrow">
                     <a
                       class="dropdown-toggle"
@@ -187,7 +184,7 @@ class ProjectAnalysis extends Component {
                 <div class="card-body-task-chart">
                   <div class="chart-area">
                     {/* <canvas id="myAreaChart"></canvas> */}
-                    <ChartPie name="bar" />
+                    <ChartPie name="bar"/>
                   </div>
                 </div>
               </div>
@@ -197,7 +194,7 @@ class ProjectAnalysis extends Component {
               <div class="card shadow mb-4">
                 <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
                   <h6 class="m-0 font-weight-bold text-primary">
-                    Tasks Manager
+                  Tasks Manager
                   </h6>
                   <div class="dropdown no-arrow">
                     <a
@@ -232,41 +229,7 @@ class ProjectAnalysis extends Component {
 
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <ChartPie name="pie" chartDataPie={this.state.chartDataPie} completeTask={this.state.completeTask.length} chartDataPie={this.state.chartDataPie} plannedTask={this.state.plannedTask.length} allTask={this.state.allTask.length} processTask={this.state.processTask.length}/>
-                    {/* <Pie
-                      data={this.state.chartDataPie}
-                      options={{
-                        tooltips: {
-                          callbacks: {
-                            title: function (tooltipItem, data) {
-                              return data["labels"][tooltipItem[0]["index"]];
-                            },
-                            label: function (tooltipItem, data) {
-                              return (
-                                " " +
-                                data["datasets"][0]["data"][
-                                  tooltipItem["index"]
-                                ] +
-                                " Tasks"
-                              );
-                            },
-                            afterLabel: function (tooltipItem, data) {
-                              var dataset =
-                                data["datasets"][0]["data"][
-                                  tooltipItem["index"]
-                                ];
-                              var dataset1 =
-                                data.datasets[tooltipItem.datasetIndex];
-                              var meta =
-                                dataset1._meta[Object.keys(dataset1._meta)[0]];
-                              var total = meta.total;
-                              var percent = Math.round((dataset / total) * 100);
-                              return "(" + percent + "%)";
-                            },
-                          },
-                        },
-                      }}
-                      redraw /> */}
+                    <ChartPie name="pie" completeTask={this.state.completeTask.length} chartDataPie={this.state.chartDataPie} plannedTask={this.state.plannedTask.length} allTask={this.state.allTask.length} processTask={this.state.processTask.length}/>
                   </div>
                   <div class="mt-4 text-center small">
                     <span class="mr-2">
@@ -283,7 +246,6 @@ class ProjectAnalysis extends Component {
               </div>
             </div>
           </div>
-          
         </div>
       </div>
     );

@@ -1,26 +1,28 @@
 import React, { Component } from "react";
 import { Bar, Line, Pie } from "react-chartjs-2";
-import { Button } from "reactstrap";
 
 class ChartPie extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      plannedTask:this.props.plannedTask,
-      processTask:this.props.processTask,
-      completeTask:this.props.completeTask,
-      chartDataBar:{},
-     
+      chartDataPie: {
+        datasets: [
+          {
+            label: "Population",
+            data: [this.props.pl, 20, 21],
+            backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
+          },
+        ],
+      },
+      chartDataBar:{}
     };
    
   }
   render() {
-   
-    console.log(this.props.data)
     return (
       <div className="chart">
          {this.props.name =="pie" ? (<Pie
-          data={this.props.chartDataPie}
+          data={this.state.chartDataPie}
           options={{
             tooltips: {
               callbacks: {
@@ -41,7 +43,7 @@ class ChartPie extends Component {
               },
             },
           }}
-          redraw />) : (<Bar
+        />) : (<Bar
           data={{
             labels: [
               "Hải Đăng",

@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import { Bar, Line, Pie } from "react-chartjs-2";
-import { Button } from "reactstrap";
 
 class ChartPie extends Component {
   constructor(props) {
@@ -9,13 +8,15 @@ class ChartPie extends Component {
       plannedTask:this.props.plannedTask,
       processTask:this.props.processTask,
       completeTask:this.props.completeTask,
-      chartDataBar:{},
-     
+      chartDataBar:{}
     };
    
   }
   render() {
-   
+    // alert(this.props.plannedTask);
+    // alert(this.props.processTask);
+    // alert(this.props.completeTask);
+    // console.log(this.props.plannedTask+" "+this.props.processTask+" "+ this.props.completeTask)
     console.log(this.props.data)
     return (
       <div className="chart">
@@ -41,7 +42,7 @@ class ChartPie extends Component {
               },
             },
           }}
-          redraw />) : (<Bar
+        />) : (<Bar
           data={{
             labels: [
               "Hải Đăng",

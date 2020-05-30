@@ -20,7 +20,7 @@ class ChartPie extends Component {
     return (
       <div className="chart">
          {this.props.name =="pie" ? (<Pie
-          data={this.props.chartDataPie}
+          data={this.state.chartDataPie}
           options={{
             tooltips: {
               callbacks: {

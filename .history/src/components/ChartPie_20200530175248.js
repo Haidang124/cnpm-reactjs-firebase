@@ -10,7 +10,15 @@ class ChartPie extends Component {
       processTask:this.props.processTask,
       completeTask:this.props.completeTask,
       chartDataBar:{},
-     
+      chartDataPie: {
+        datasets: [
+          {
+            label: "Population",
+            data: this.props.data,
+            backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
+          },
+        ],
+      },
     };
    
   }
@@ -20,7 +28,7 @@ class ChartPie extends Component {
     return (
       <div className="chart">
          {this.props.name =="pie" ? (<Pie
-          data={this.props.chartDataPie}
+          data={this.state.chartDataPie}
           options={{
             tooltips: {
               callbacks: {

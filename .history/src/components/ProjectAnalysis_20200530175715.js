@@ -16,6 +16,7 @@ class ProjectAnalysis extends Component {
       members: [],
       plannedTask: 0,
       processTask: 0,
+      data: [1, 1, 3],
       chartDataPie: {
         datasets: [
           {
@@ -27,6 +28,22 @@ class ProjectAnalysis extends Component {
       },
     };
   }
+
+  setData = () => {
+    this.setState({
+     data:[14,12,6],
+     chartDataPie: {
+      datasets: [
+        {
+          label: "Population",
+          data: [12,10,13],
+          backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
+        },
+      ],
+    },
+    });
+    console.log(this.state.data);
+  };
   componentDidMount() {
     db.collection("topics")
       .doc(this.props.match.params.code)
@@ -34,9 +51,10 @@ class ProjectAnalysis extends Component {
         if (
           typeof doc.data().topic[this.props.match.params.key] !== "undefined"
         ) {
-            var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject.length;
-            var processTask=doc.data().topic[this.props.match.params.key].processTaskProject.length;
-            var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject.length;
+          // var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject;
+          // var processTask=doc.data().topic[this.props.match.params.key].processTaskProject;
+          // var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject;
+
           this.setState({
             allTask: doc.data().topic[this.props.match.params.key]
               .alltaskProject,
@@ -48,15 +66,15 @@ class ProjectAnalysis extends Component {
               .processTaskProject,
             members: doc.data().topic[this.props.match.params.key].member,
             // data:[doc.data().topic[this.props.match.params.key].planTaskProject.length, doc.data().topic[this.props.match.params.key].processTaskProject.length, doc.data().topic[this.props.match.params.key].completeTaskProject.length]
-            chartDataPie: {
-              datasets: [
-                {
-                  label: "Population",
-                  data: [plannedTask,processTask,completeTask],
-                  backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
-                },
-              ],
-            },
+            // chartDataPie: {
+            //   datasets: [
+            //     {
+            //       label: "Population",
+            //       data: [plannedTask,processTask,completeTask],
+            //       backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
+            //     },
+            //   ],
+            // },
           });
         }
       });
@@ -283,7 +301,9 @@ class ProjectAnalysis extends Component {
               </div>
             </div>
           </div>
-          
+          <Button color="primary ml-4" onClick={this.setData}>
+            Tìm Kiếm
+          </Button>
         </div>
       </div>
     );

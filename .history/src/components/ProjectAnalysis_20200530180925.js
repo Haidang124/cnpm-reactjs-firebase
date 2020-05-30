@@ -34,6 +34,9 @@ class ProjectAnalysis extends Component {
         if (
           typeof doc.data().topic[this.props.match.params.key] !== "undefined"
         ) {
+          // var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject;
+          // var processTask=doc.data().topic[this.props.match.params.key].processTaskProject;
+          // var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject;
             var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject.length;
             var processTask=doc.data().topic[this.props.match.params.key].processTaskProject.length;
             var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject.length;

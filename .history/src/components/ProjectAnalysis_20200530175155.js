@@ -16,17 +16,20 @@ class ProjectAnalysis extends Component {
       members: [],
       plannedTask: 0,
       processTask: 0,
-      chartDataPie: {
-        datasets: [
-          {
-            label: "Population",
-            data: [12,5,3],
-            backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
-          },
-        ],
-      },
+      data: [1, 1, 3],
+      // chartDataPie : [
+      //   {label: "First", value: 50}, {label: "Second", value: 50 } ,
+      //   {label: "3", value: 50},
+      // ]
     };
   }
+
+  setData = () => {
+    this.setState({
+     data:[14,12,6]
+    });
+    console.log(this.state.data);
+  };
   componentDidMount() {
     db.collection("topics")
       .doc(this.props.match.params.code)
@@ -34,9 +37,10 @@ class ProjectAnalysis extends Component {
         if (
           typeof doc.data().topic[this.props.match.params.key] !== "undefined"
         ) {
-            var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject.length;
-            var processTask=doc.data().topic[this.props.match.params.key].processTaskProject.length;
-            var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject.length;
+          // var plannedTask=doc.data().topic[this.props.match.params.key].planTaskProject;
+          // var processTask=doc.data().topic[this.props.match.params.key].processTaskProject;
+          // var completeTask=doc.data().topic[this.props.match.params.key].completeTaskProject;
+
           this.setState({
             allTask: doc.data().topic[this.props.match.params.key]
               .alltaskProject,
@@ -48,15 +52,15 @@ class ProjectAnalysis extends Component {
               .processTaskProject,
             members: doc.data().topic[this.props.match.params.key].member,
             // data:[doc.data().topic[this.props.match.params.key].planTaskProject.length, doc.data().topic[this.props.match.params.key].processTaskProject.length, doc.data().topic[this.props.match.params.key].completeTaskProject.length]
-            chartDataPie: {
-              datasets: [
-                {
-                  label: "Population",
-                  data: [plannedTask,processTask,completeTask],
-                  backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
-                },
-              ],
-            },
+            // chartDataPie: {
+            //   datasets: [
+            //     {
+            //       label: "Population",
+            //       data: [plannedTask,processTask,completeTask],
+            //       backgroundColor: ["#ffc107", "#17a2b8", "#28a745"],
+            //     },
+            //   ],
+            // },
           });
         }
       });
@@ -232,7 +236,7 @@ class ProjectAnalysis extends Component {
 
                 <div class="card-body">
                   <div class="chart-pie pt-4 pb-2">
-                    <ChartPie name="pie" chartDataPie={this.state.chartDataPie} completeTask={this.state.completeTask.length} chartDataPie={this.state.chartDataPie} plannedTask={this.state.plannedTask.length} allTask={this.state.allTask.length} processTask={this.state.processTask.length}/>
+                    <ChartPie name="pie" data={this.state.data} completeTask={this.state.completeTask.length} chartDataPie={this.state.chartDataPie} plannedTask={this.state.plannedTask.length} allTask={this.state.allTask.length} processTask={this.state.processTask.length}/>
                     {/* <Pie
                       data={this.state.chartDataPie}
                       options={{
@@ -283,7 +287,9 @@ class ProjectAnalysis extends Component {
               </div>
             </div>
           </div>
-          
+          <Button color="primary ml-4" onClick={this.setData}>
+            Tìm Kiếm
+          </Button>
         </div>
       </div>
     );
