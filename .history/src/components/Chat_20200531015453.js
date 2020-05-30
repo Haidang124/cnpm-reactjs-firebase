@@ -55,7 +55,7 @@ class Chat extends Component {
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
-            <div className="list-user-chat">
+            <div className="list-user-chat active">
               <div className="avatar-chat-group">
                 <img
                     src="https://randomuser.me/api/portraits/men/44.jpg"

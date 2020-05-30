@@ -37,55 +37,45 @@ class Chat extends Component {
                 </button>
               </div>
             </div>
-            <div className="list-user-chat active">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
+            <div className="list-user-chat">
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
             <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
             <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
+              <div className="name-contentchat">
+                <span>Louis litt</span>
+                <span>You just got Lutt up , mike</span>
               </div>
+            </div>
+            <div className="list-user-chat">
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
@@ -142,30 +132,7 @@ class Chat extends Component {
                   alt=""
                 />
               </div>
-              <div className="info-current-friend">
-                <span>
-                  How the hell am i supposed to get a jury to believe you when i
-                  am not even sure that i do ?!
-                </span>
-                <img
-                  src="https://randomuser.me/api/portraits/men/44.jpg"
-                  className="avatar-chat"
-                  alt=""
-                />
-              </div>
-              <div className="info-current">
-                <img
-                  src="https://randomuser.me/api/portraits/men/44.jpg"
-                  className="avatar-chat"
-                  alt=""
-                />
-                <span>
-                  How the hell am i supposed to get a jury to believe you when i
-                  am not even sure that i do ?!
-                </span>
-              </div>
-            </div>
-            <div className="input-group">
+              <div className="input-group">
                 <input
                   type="text"
                   className="form-control bg-light border-0 small"
@@ -175,10 +142,11 @@ class Chat extends Component {
                 />
                 <div className="input-group-append">
                   <button className="btn btn-primary" type="button">
-                    <i className="fa fa-paper-plane" aria-hidden="true" />
+                    <i className="fas fa-search fa-sm" aria-hidden="true" />
                   </button>
                 </div>
               </div>
+            </div>
           </div>
         </div>
         </div>

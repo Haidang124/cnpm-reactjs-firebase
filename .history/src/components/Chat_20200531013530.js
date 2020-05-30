@@ -38,15 +38,11 @@ class Chat extends Component {
               </div>
             </div>
             <div className="list-user-chat active">
+             
               <div className="avatar-chat-group">
                 <img
                     src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
+                    className="avatar-chat-small"
                     alt=""
                 />
               </div>
@@ -56,36 +52,33 @@ class Chat extends Component {
               </div>
             </div>
             <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
             <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
+              <div className="name-contentchat">
+                <span>Louis litt</span>
+                <span>You just got Lutt up , mike</span>
               </div>
+            </div>
+            <div className="list-user-chat">
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>

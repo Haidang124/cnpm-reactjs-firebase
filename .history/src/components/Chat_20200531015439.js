@@ -55,42 +55,7 @@ class Chat extends Component {
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
-            <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
-              <div className="name-contentchat">
-                <span>Louis litt</span>
-                <span>You just got Lutt up , mike</span>
-              </div>
-            </div>
-            <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
-              <div className="name-contentchat">
-                <span>Louis litt</span>
-                <span>You just got Lutt up , mike</span>
-              </div>
-            </div>
+           
           </div>
           <div className="content-chat">
             <div className="info-current-chat">

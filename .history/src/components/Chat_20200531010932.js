@@ -37,55 +37,45 @@ class Chat extends Component {
                 </button>
               </div>
             </div>
-            <div className="list-user-chat active">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
+            <div className="list-user-chat">
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
             <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
               </div>
             </div>
             <div className="list-user-chat">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
+              <div className="name-contentchat">
+                <span>Louis litt</span>
+                <span>You just got Lutt up , mike</span>
               </div>
+            </div>
+            <div className="list-user-chat">
+              <img
+                src="https://randomuser.me/api/portraits/men/44.jpg"
+                className="avatar-chat"
+                alt=""
+              />
               <div className="name-contentchat">
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
@@ -142,6 +132,7 @@ class Chat extends Component {
                   alt=""
                 />
               </div>
+                </div>
               <div className="info-current-friend">
                 <span>
                   How the hell am i supposed to get a jury to believe you when i
@@ -152,17 +143,6 @@ class Chat extends Component {
                   className="avatar-chat"
                   alt=""
                 />
-              </div>
-              <div className="info-current">
-                <img
-                  src="https://randomuser.me/api/portraits/men/44.jpg"
-                  className="avatar-chat"
-                  alt=""
-                />
-                <span>
-                  How the hell am i supposed to get a jury to believe you when i
-                  am not even sure that i do ?!
-                </span>
               </div>
             </div>
             <div className="input-group">
