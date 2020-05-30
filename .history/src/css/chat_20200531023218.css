@@ -78,7 +78,7 @@
   font-size: 12px;
 }
 .chat-container .list-chat .list-user-chat .name-contentchat span{
-  font-size: 16px;
+  font-size: 17px;
   font-weight: bold;
 }
 .chat-container .content-chat {
@@ -165,7 +165,7 @@
           align-items: center;
   margin-left: 10px;
   background-color: #435f7a;
-  max-width: 400px;
+  width: 400px;
   padding: 10px;
   color: white;
   border-radius: 15px;
@@ -179,9 +179,8 @@
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  max-width: 450px;
+  width: 450px;
   margin-left: 300px;
-  justify-content: flex-end;  
 }
 
 .chat-container .content-chat .list-content-chat .info-current-friend span {

@@ -181,7 +181,6 @@
           align-items: center;
   max-width: 450px;
   margin-left: 300px;
-  justify-content: flex-end;  
 }
 
 .chat-container .content-chat .list-content-chat .info-current-friend span {

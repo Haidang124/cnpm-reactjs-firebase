@@ -9,54 +9,18 @@ class Chat extends Component {
     constructor(props) {
         super(props);
         this.state={
-            mychat:[],
-            currentChat:[],
-            username:[],
-            active:0
+            mychat:[]
         }
     }
-    loadChat=(key)=>{
-        this.setState({
-            active:key,
-            currentChat:this.state.mychat[key].content
-        })
-        // alert(key)
-    }
-    addNewChat=()=>{
-        var contentChat = document.getElementById("input-message").value;
-        this.state.mychat[this.state.active].content.push({
-            contentChat:contentChat,
-            uidChat:store.getState().userAuth.uid,
-        })
-        var newChat = {
-            mychat: this.state.mychat,
-          };
-          db.collection("users").doc(store.getState().userAuth.uid).update(newChat);
-          document.getElementById("input-message").value="";
-    }
-    addChat=(event)=>{
-        if (event.key === "Enter") {
-            this.addNewChat();
-            // alert(this.state.active)
-        }
-    }
+    
     componentDidMount() {
         db.collection("users")
           .doc(store.getState().userAuth.uid)
           .onSnapshot((doc) => {
-            this.setState({
-                mychat:doc.data().mychat,
-                username: doc.data().firstName + " " + doc.data().lastName,
-            })
-            if(typeof doc.data().mychat[0] !== "undefined") {
-                this.setState({
-                    currentChat:doc.data().mychat[0].content
-                })
-            }
+            this.s
           });
       }
   render() {
-    //   console.log()
     return (
       <div className="chat">
         <Menu />
@@ -70,7 +34,7 @@ class Chat extends Component {
                 className="avatar-chat"
                 alt=""
               />
-              <span>{this.state.username}</span>
+              <span>Mike Ross</span>
             </div>
             <div className="input-group">
               <input
@@ -86,46 +50,7 @@ class Chat extends Component {
                 </button>
               </div>
             </div>
-           
-            {/* <div className="list-user-chat active">
-              <div className="avatar-chat-group">
-                <img
-                    src="https://randomuser.me/api/portraits/men/44.jpg"
-                    className="avatar-chat-small-first"
-                    alt=""
-                />
-                 <img
-                    src="https://randomuser.me/api/portraits/men/47.jpg"
-                    className="avatar-chat-small-second"
-                    alt=""
-                />
-              </div>
-              <div className="name-contentchat">
-                <span>Louis litt</span>
-              </div>
-            </div> */}
-            {this.state.mychat.map((item,key)=>
-                <div className={key == this.state.active? "list-user-chat active":"list-user-chat"} onClick={()=>this.loadChat(key)}>
-                <div className="avatar-chat-group">
-                  <img
-                      src="https://randomuser.me/api/portraits/men/44.jpg"
-                      className="avatar-chat-small-first"
-                      alt=""
-                  />
-                   <img
-                      src="https://randomuser.me/api/portraits/men/47.jpg"
-                      className="avatar-chat-small-second"
-                      alt=""
-                  />
-                </div>
-                <div className="name-contentchat">
-                  {/* <span>Louis litt</span> */}
-                  <span>{item.nameProject}</span>
-                  {/* <span>You just got Lutt up , mike</span> */}
-                </div>
-              </div>
-            )}
-            {/* <div className="list-user-chat active">
+            <div className="list-user-chat active">
               <div className="avatar-chat-group">
                 <img
                     src="https://randomuser.me/api/portraits/men/44.jpg"
@@ -178,7 +103,7 @@ class Chat extends Component {
                 <span>Louis litt</span>
                 <span>You just got Lutt up , mike</span>
               </div>
-            </div> */}
+            </div>
           </div>
           <div className="content-chat">
             <div className="info-current-chat">
@@ -198,7 +123,7 @@ class Chat extends Component {
                   className="avatar-chat"
                   alt=""
                 />
-                {/* <span>{typeof this.state.mychat[this.state.active].nameProject != "undefined" ? this.state.mychat[this.state.active].nameProject :<p></p>}</span> */}
+                <span>Harvey Specter</span>
               </div>
               <div className="social-media">
                 <i className="fab fa-facebook-f" />
@@ -207,26 +132,7 @@ class Chat extends Component {
               </div>
             </div>
             <div className="list-content-chat">
-            {this.state.currentChat ? this.state.currentChat.map((item,key)=>item.uidChat == store.getState().userAuth.uid ?   <div className="info-current">
-                <img
-                  src="https://randomuser.me/api/portraits/men/44.jpg"
-                  className="avatar-chat"
-                  alt=""
-                />
-                <span>
-                  {item.contentChat}
-                </span>
-              </div>:  <div className="info-current-friend">
-                <span>
-                  {item.contentChat}
-                </span>
-                <img
-                  src="https://randomuser.me/api/portraits/men/42.jpg"
-                  className="avatar-chat"
-                  alt=""
-                />
-              </div>) :<p></p>}
-              {/* <div className="info-current">
+              <div className="info-current">
                 <img
                   src="https://randomuser.me/api/portraits/men/44.jpg"
                   className="avatar-chat"
@@ -236,8 +142,8 @@ class Chat extends Component {
                   How the hell am i supposed to get a jury to believe you when i
                   am not even sure that i do ?!
                 </span>
-              </div> */}
-              {/* <div className="info-current-friend">
+              </div>
+              <div className="info-current-friend">
                 <span>
                   How the hell am i supposed to get a jury to believe you when i
                   am not even sure that i do ?!
@@ -280,7 +186,7 @@ class Chat extends Component {
                   How the hell am i supposed to get a jury to believe you when i
                   am not even sure that i do ?!
                 </span>
-              </div> */}
+              </div>
             </div>
             <div className="input-group">
                 <input
@@ -289,8 +195,6 @@ class Chat extends Component {
                   placeholder="Type a message..."
                   aria-label="Search"
                   aria-describedby="basic-addon2"
-                  id="input-message"
-                  onKeyPress={this.addChat}
                 />
                 <div className="input-group-append">
                   <button className="btn btn-primary" type="button">

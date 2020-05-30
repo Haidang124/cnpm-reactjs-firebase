@@ -22,24 +22,6 @@ class Chat extends Component {
         })
         // alert(key)
     }
-    addNewChat=()=>{
-        var contentChat = document.getElementById("input-message").value;
-        this.state.mychat[this.state.active].content.push({
-            contentChat:contentChat,
-            uidChat:store.getState().userAuth.uid,
-        })
-        var newChat = {
-            mychat: this.state.mychat,
-          };
-          db.collection("users").doc(store.getState().userAuth.uid).update(newChat);
-          document.getElementById("input-message").value="";
-    }
-    addChat=(event)=>{
-        if (event.key === "Enter") {
-            this.addNewChat();
-            // alert(this.state.active)
-        }
-    }
     componentDidMount() {
         db.collection("users")
           .doc(store.getState().userAuth.uid)
@@ -198,7 +180,7 @@ class Chat extends Component {
                   className="avatar-chat"
                   alt=""
                 />
-                {/* <span>{typeof this.state.mychat[this.state.active].nameProject != "undefined" ? this.state.mychat[this.state.active].nameProject :<p></p>}</span> */}
+                <span>{Harvey Specter}</span>
               </div>
               <div className="social-media">
                 <i className="fab fa-facebook-f" />
@@ -289,8 +271,6 @@ class Chat extends Component {
                   placeholder="Type a message..."
                   aria-label="Search"
                   aria-describedby="basic-addon2"
-                  id="input-message"
-                  onKeyPress={this.addChat}
                 />
                 <div className="input-group-append">
                   <button className="btn btn-primary" type="button">

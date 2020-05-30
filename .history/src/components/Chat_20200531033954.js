@@ -22,23 +22,8 @@ class Chat extends Component {
         })
         // alert(key)
     }
-    addNewChat=()=>{
-        var contentChat = document.getElementById("input-message").value;
-        this.state.mychat[this.state.active].content.push({
-            contentChat:contentChat,
-            uidChat:store.getState().userAuth.uid,
-        })
-        var newChat = {
-            mychat: this.state.mychat,
-          };
-          db.collection("users").doc(store.getState().userAuth.uid).update(newChat);
-          document.getElementById("input-message").value="";
-    }
-    addChat=(event)=>{
-        if (event.key === "Enter") {
-            this.addNewChat();
-            // alert(this.state.active)
-        }
+    addChat=()=>{
+        
     }
     componentDidMount() {
         db.collection("users")

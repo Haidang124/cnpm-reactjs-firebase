@@ -32,7 +32,7 @@ class Chat extends Component {
             mychat: this.state.mychat,
           };
           db.collection("users").doc(store.getState().userAuth.uid).update(newChat);
-          document.getElementById("input-message").value="";
+          document.getElementById("input-message").value=""
     }
     addChat=(event)=>{
         if (event.key === "Enter") {
