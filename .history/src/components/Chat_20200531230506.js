@@ -17,6 +17,7 @@ class Chat extends Component {
       codeCourse: [],
       fulldataTopics: {},
       keyTopic: [],
+      indexTopic: [],
     };
   }
   loadChat = async (key, keyTopic) => {

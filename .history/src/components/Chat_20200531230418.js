@@ -17,6 +17,7 @@ class Chat extends Component {
       codeCourse: [],
       fulldataTopics: {},
       keyTopic: [],
+      indexTopic: [],
     };
   }
   loadChat = async (key, keyTopic) => {
@@ -51,7 +52,6 @@ class Chat extends Component {
           topic: Newchattopic,
         };
         db.collection("topics").doc(this.state.codeCourse).update(newChat);
-        document.getElementById("input-message").value="";
       }
     });
     // var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;

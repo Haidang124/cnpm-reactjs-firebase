@@ -17,6 +17,7 @@ class Chat extends Component {
       codeCourse: [],
       fulldataTopics: {},
       keyTopic: [],
+      indexTopic: [],
     };
   }
   loadChat = async (key, keyTopic) => {
@@ -46,12 +47,11 @@ class Chat extends Component {
         //   indexTopic: key,
         // });
         var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
-        Newchattopic[key].Chat.push(newMessage);
-        var newChat = {
-          topic: Newchattopic,
-        };
-        db.collection("topics").doc(this.state.codeCourse).update(newChat);
-        document.getElementById("input-message").value="";
+        Newchattopic[this.state.indexTopic].Chat.push(newMessage);
+    var newChat = {
+      topic: Newchattopic,
+    };
+    db.collection("topics").doc(this.state.codeCourse).update(newChat);
       }
     });
     // var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;

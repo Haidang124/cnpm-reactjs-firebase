@@ -17,6 +17,7 @@ class Chat extends Component {
       codeCourse: [],
       fulldataTopics: {},
       keyTopic: [],
+      indexTopic: [],
     };
   }
   loadChat = async (key, keyTopic) => {
@@ -42,21 +43,12 @@ class Chat extends Component {
     };
     this.state.fulldataTopics[this.state.codeCourse].topic.map((item, key) => {
       if (item.keyTopic == this.state.keyTopic) {
-        // this.setState({
-        //   indexTopic: key,
-        // });
-        var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
-        Newchattopic[key].Chat.push(newMessage);
-        var newChat = {
-          topic: Newchattopic,
-        };
-        db.collection("topics").doc(this.state.codeCourse).update(newChat);
-        document.getElementById("input-message").value="";
+        this.setState({
+          indexTopic: key,
+        });
       }
     });
-    // var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
-    // console.log(Newchattopic)
-    // console.log(this.state.indexTopic)
+    var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
     // Newchattopic[this.state.indexTopic].Chat.push(newMessage);
     // var newChat = {
     //   topic: Newchattopic,
@@ -165,7 +157,7 @@ class Chat extends Component {
     //  })
   }
   render() {
-    // console.log(this.state.fulldataTopics[this.state.codeCourse]);
+    console.log(this.state.fulldataTopics[this.state.codeCourse]);
     return (
       <div className="chat">
         <Menu />

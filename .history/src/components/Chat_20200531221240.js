@@ -10,22 +10,22 @@ class Chat extends Component {
     super(props);
     this.state = {
       // mychat:[],
-      // currentChat: [],
+      currentChat: [],
       // username:[],
       active: 0,
       mytopics: [],
       codeCourse: [],
+      indexCourse: [],
       fulldataTopics: {},
       keyTopic: [],
     };
   }
-  loadChat = async (key, keyTopic) => {
+  loadChat = async(key, keyTopic) => {
     await this.setState({
-      active: key,
-      codeCourse: this.state.mytopics[key].codeCourses,
-      keyTopic: this.state.mytopics[key].keyTopic,
-    });
-    // alert(this.state.codeCourse)
+        active:key,
+        codeCourse:this.state.mytopics[key].codeCourses,
+    })
+    alert(this.state.codeCourse)
     // this.state.fulldataTopics[this.setState.codeCourse].topic.map((item,key)=>{
     //   if(item.keyTopic==keyTopic)
     //   {
@@ -34,51 +34,26 @@ class Chat extends Component {
     // console.log(this.state.mytopics[key].keyTopic)
     // alert(key)
   };
-  addNewChat = () => {
-    var contentChat = document.getElementById("input-message").value;
-    var newMessage = {
-      contentChat: contentChat,
-      uidChat: store.getState().userAuth.uid,
-    };
-    this.state.fulldataTopics[this.state.codeCourse].topic.map((item, key) => {
-      if (item.keyTopic == this.state.keyTopic) {
-        // this.setState({
-        //   indexTopic: key,
-        // });
-        var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
-        Newchattopic[key].Chat.push(newMessage);
-        var newChat = {
-          topic: Newchattopic,
-        };
-        db.collection("topics").doc(this.state.codeCourse).update(newChat);
-        document.getElementById("input-message").value="";
-      }
-    });
-    // var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
-    // console.log(Newchattopic)
-    // console.log(this.state.indexTopic)
-    // Newchattopic[this.state.indexTopic].Chat.push(newMessage);
-    // var newChat = {
-    //   topic: Newchattopic,
-    // };
-    // db.collection("topics").doc(this.state.codeCourse).update(newChat);
-    // this.state.mychat[this.state.active].content.push({
-    //     contentChat:contentChat,
-    //     uidChat:store.getState().userAuth.uid,
-    // })
-    // var newChat = {
-    //     mychat: this.state.mychat,
-    //   };
-    //   db.collection("users").doc(store.getState().userAuth.uid).update(newChat);
-    //   document.getElementById("input-message").value="";
-  };
-  addChat = (event) => {
-    if (event.key === "Enter") {
-      this.addNewChat();
-      // alert(this.state.active)
-    }
-  };
+  // addNewChat=()=>{
+  //     var contentChat = document.getElementById("input-message").value;
+  //     this.state.mychat[this.state.active].content.push({
+  //         contentChat:contentChat,
+  //         uidChat:store.getState().userAuth.uid,
+  //     })
+  //     var newChat = {
+  //         mychat: this.state.mychat,
+  //       };
+  //       db.collection("users").doc(store.getState().userAuth.uid).update(newChat);
+  //       document.getElementById("input-message").value="";
+  // }
+  // addChat=(event)=>{
+  //     if (event.key === "Enter") {
+  //         this.addNewChat();
+  //         // alert(this.state.active)
+  //     }
+  // }
   async componentDidMount() {
+ 
     // await db
     // .collection("topics")
     // .get()
@@ -95,15 +70,16 @@ class Chat extends Component {
     //       this.state.fulldataTopics[doc.id] = doc.data();
     //     });
     //   });
-    var fulldataTopics = {};
-    db.collection("topics").onSnapshot((snapshot) => {
-      snapshot.forEach((doc) => {
-        // console.log(doc.id)
-        fulldataTopics[doc.id] = doc.data();
-      });
-      this.setState({
-        fulldataTopics: fulldataTopics,
-      });
+    var fulldataTopics={};
+       db.collection("topics")
+      .onSnapshot((snapshot) =>{
+        snapshot.forEach(doc => {
+          // console.log(doc.id)
+          fulldataTopics[doc.id]=doc.data();
+        });
+       this.setState({
+        fulldataTopics:fulldataTopics
+       })
       //   db
       // .collection("topics")
       // .get()
@@ -116,9 +92,9 @@ class Chat extends Component {
       //     // })
       //   });
       // });
-      // console.log("snapshot1")
+        // console.log("snapshot1")
       //  console.log(snapshot)
-    });
+      });
     // db.collection("topics").onSnapshot(function (snapshot) {
     //   snapshot.docChanges.forEach( (change) =>{
     //     if (change.type === "added") {
@@ -132,7 +108,8 @@ class Chat extends Component {
     //     }
     //   });
     // });
-    db.collection("users")
+     db
+      .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {
         this.setState({
@@ -165,7 +142,7 @@ class Chat extends Component {
     //  })
   }
   render() {
-    // console.log(this.state.fulldataTopics[this.state.codeCourse]);
+    console.log(this.state.fulldataTopics[this.state.codeCourse])
     return (
       <div className="chat">
         <Menu />
@@ -265,10 +242,6 @@ class Chat extends Component {
                   this.state.fulldataTopics[this.state.codeCourse].topic.map(
                     (item, key) =>
                       item.keyTopic == this.state.keyTopic ? (
-                        // console.log
-                        // this.setState({
-
-                        // })
                         item.Chat.map((itemChat, keyChat) =>
                           itemChat.uidChat == store.getState().userAuth.uid ? (
                             <div className="info-current">
@@ -279,25 +252,14 @@ class Chat extends Component {
                               />
                               <span>
                                 {/* {itemChat.contentChat} */}
-                                {/* {console.log(itemChat)} */}
-                                {
-                                  this.state.fulldataTopics[
-                                    this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].contentChat
-                                }
+                                { this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}
                                 {/* nhanh leen */}
                                 {/* {item.} */}
                               </span>
                             </div>
                           ) : (
                             <div className="info-current-friend">
-                              <span>
-                                {
-                                  this.state.fulldataTopics[
-                                    this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].contentChat
-                                }
-                              </span>
+                              <span>{ this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}</span>
                               {/* <span> {itemChat.contentChat}</span> */}
                               <img
                                 src="https://randomuser.me/api/portraits/men/42.jpg"

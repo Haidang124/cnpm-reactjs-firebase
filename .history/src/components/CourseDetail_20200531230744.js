@@ -59,7 +59,7 @@ class CourseDetail extends Component {
       planTaskProject:[],
       processTaskProject:[],
       fileProject :[],
-      Chat:[],
+      Chat:
     };
     console.log(newTopic);
     this.state.topic.push(newTopic);
