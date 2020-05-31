@@ -69,16 +69,12 @@ class Chat extends Component {
     //       this.state.fulldataTopics[doc.id] = doc.data();
     //     });
     //   });
-    var fulldataTopics={};
-       db.collection("topics")
+      await db.collection("topics")
       .onSnapshot((snapshot) =>{
         snapshot.forEach(doc => {
           // console.log(doc.id)
-          fulldataTopics[doc.id]=doc.data();
+          // this.state.fulldataTopics[doc.id]
         });
-       this.setState({
-        fulldataTopics:fulldataTopics
-       })
       //   db
       // .collection("topics")
       // .get()
@@ -107,7 +103,7 @@ class Chat extends Component {
     //     }
     //   });
     // });
-     db
+    await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {

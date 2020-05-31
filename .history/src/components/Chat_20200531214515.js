@@ -107,7 +107,7 @@ class Chat extends Component {
     //     }
     //   });
     // });
-     db
+    await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {

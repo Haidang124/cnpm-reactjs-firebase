@@ -61,24 +61,17 @@ class Chat extends Component {
     //     this.state.fulldataTopics.push(doc.data());
     //   });
     // });
-    // await db
-    //   .collection("topics")
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       this.state.fulldataTopics[doc.id] = doc.data();
-    //     });
-    //   });
-    var fulldataTopics={};
-       db.collection("topics")
-      .onSnapshot((snapshot) =>{
-        snapshot.forEach(doc => {
-          // console.log(doc.id)
-          fulldataTopics[doc.id]=doc.data();
+    await db
+      .collection("topics")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          this.state.fulldataTopics[doc.id] = doc.data();
         });
-       this.setState({
-        fulldataTopics:fulldataTopics
-       })
+      });
+      await db.collection("topics")
+      .onSnapshot((snapshot) =>{
+        
       //   db
       // .collection("topics")
       // .get()
@@ -91,7 +84,7 @@ class Chat extends Component {
       //     // })
       //   });
       // });
-        // console.log("snapshot1")
+        console.log("snapshot1")
       //  console.log(snapshot)
       });
     // db.collection("topics").onSnapshot(function (snapshot) {
@@ -107,7 +100,7 @@ class Chat extends Component {
     //     }
     //   });
     // });
-     db
+    await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {

@@ -70,7 +70,7 @@ class Chat extends Component {
     //     });
     //   });
     var fulldataTopics={};
-       db.collection("topics")
+      await db.collection("topics")
       .onSnapshot((snapshot) =>{
         snapshot.forEach(doc => {
           // console.log(doc.id)
@@ -107,7 +107,7 @@ class Chat extends Component {
     //     }
     //   });
     // });
-     db
+    await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {

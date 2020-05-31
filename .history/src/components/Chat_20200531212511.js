@@ -16,7 +16,7 @@ class Chat extends Component {
       mytopics: [],
       codeCourse: [],
       indexCourse: [],
-      fulldataTopics: {},
+      fulldataTopics: [],
       keyTopic: [],
     };
   }
@@ -62,38 +62,26 @@ class Chat extends Component {
     //   });
     // });
     // await db
-    //   .collection("topics")
-    //   .get()
-    //   .then((querySnapshot) => {
-    //     querySnapshot.forEach((doc) => {
-    //       this.state.fulldataTopics[doc.id] = doc.data();
-    //     });
-    //   });
-    var fulldataTopics={};
-       db.collection("topics")
-      .onSnapshot((snapshot) =>{
-        snapshot.forEach(doc => {
-          // console.log(doc.id)
-          fulldataTopics[doc.id]=doc.data();
-        });
-       this.setState({
-        fulldataTopics:fulldataTopics
-       })
+      // .collection("topics")
+      // .get()
+      // .then((querySnapshot) => {
+      //   querySnapshot.forEach((doc) => {
+      //     this.state.fulldataTopics[doc.id] = doc.data();
+      //   });
+      // });
+      // await db.collection("topics")
+      // .onSnapshot((snapshot) =>{
       //   db
       // .collection("topics")
       // .get()
       // .then((querySnapshot) => {
       //   querySnapshot.forEach((doc) => {
-      //     // console.log(doc.data())
       //     this.state.fulldataTopics[doc.id] = doc.data();
-      //     // this.setState({
-      //     //   fulldataTopics:{id :doc.id ,...doc.data()}
-      //     // })
       //   });
       // });
-        // console.log("snapshot1")
-      //  console.log(snapshot)
-      });
+      // //   console.log("snapshot1")
+      // //  console.log(snapshot)
+      // });
     // db.collection("topics").onSnapshot(function (snapshot) {
     //   snapshot.docChanges.forEach( (change) =>{
     //     if (change.type === "added") {
@@ -107,7 +95,7 @@ class Chat extends Component {
     //     }
     //   });
     // });
-     db
+    await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {
@@ -123,7 +111,28 @@ class Chat extends Component {
         //}
         // console.log(this.state.fulldataTopics[this.state.codeCourse])
       });
-
+      db.collection("characterOptions")
+      .orderBy("votes", "desc")
+      .onSnapshot(coll => {
+        const newHeroes = [];
+        coll.forEach(doc => {
+          const {
+            name,
+            votes
+          } = doc.data();
+          newHeroes.push({
+            key: doc.id,
+            name,
+            votes
+          });
+        });
+        if(dbError) {
+           reject(dbError.message)
+           } else {
+           resolve(newHeroes);
+          }
+      });
+  });
     // await db.collection('topics').get().then((querySnapshot) => {
     //     querySnapshot.forEach((doc) => {
     //        this.state.fulldataTopics[doc.id]=doc.data();
@@ -141,7 +150,7 @@ class Chat extends Component {
     //  })
   }
   render() {
-    console.log(this.state.fulldataTopics[this.state.codeCourse])
+    console.log(this.state.fulldataTopics)
     // console.log(this.state.fulldataTopics[0])
     // console.log(this.state.keyTopic);
     return (

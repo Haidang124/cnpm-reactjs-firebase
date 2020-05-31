@@ -69,29 +69,21 @@ class Chat extends Component {
     //       this.state.fulldataTopics[doc.id] = doc.data();
     //     });
     //   });
-    var fulldataTopics={};
-       db.collection("topics")
+      await db.collection("topics")
       .onSnapshot((snapshot) =>{
-        snapshot.forEach(doc => {
-          // console.log(doc.id)
-          fulldataTopics[doc.id]=doc.data();
+        db
+      .collection("topics")
+      .get()
+      .then((querySnapshot) => {
+        querySnapshot.forEach((doc) => {
+          // console.log(doc.data())
+          this.state.fulldataTopics[doc.id] = doc.data();
+          // this.setState({
+          //   fulldataTopics:{id :doc.id ,...doc.data()}
+          // })
         });
-       this.setState({
-        fulldataTopics:fulldataTopics
-       })
-      //   db
-      // .collection("topics")
-      // .get()
-      // .then((querySnapshot) => {
-      //   querySnapshot.forEach((doc) => {
-      //     // console.log(doc.data())
-      //     this.state.fulldataTopics[doc.id] = doc.data();
-      //     // this.setState({
-      //     //   fulldataTopics:{id :doc.id ,...doc.data()}
-      //     // })
-      //   });
-      // });
-        // console.log("snapshot1")
+      });
+      //   console.log("snapshot1")
       //  console.log(snapshot)
       });
     // db.collection("topics").onSnapshot(function (snapshot) {
@@ -107,7 +99,7 @@ class Chat extends Component {
     //     }
     //   });
     // });
-     db
+    await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {
@@ -141,7 +133,7 @@ class Chat extends Component {
     //  })
   }
   render() {
-    console.log(this.state.fulldataTopics[this.state.codeCourse])
+    console.log(this.state.fulldataTopics[this.state.co])
     // console.log(this.state.fulldataTopics[0])
     // console.log(this.state.keyTopic);
     return (
