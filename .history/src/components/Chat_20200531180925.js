@@ -70,20 +70,7 @@ class Chat extends Component {
         });
       });
       await db.collection("topics")
-      .onSnapshot((snapshot) =>{
-        db
-      .collection("topics")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // console.log(doc.data())
-          this.state.fulldataTopics[doc.id] = doc.data();
-          console.log(this.state.fulldataTopics)
-          // this.setState({
-          //   fulldataTopics:{id :doc.id ,...doc.data()}
-          // })
-        });
-      });
+      .onSnapshot(function(snapshot) {
       //   console.log("snapshot1")
       //  console.log(snapshot)
       });
@@ -245,15 +232,14 @@ class Chat extends Component {
                                 alt=""
                               />
                               <span>
-                                {/* {itemChat.contentChat} */}
-                                { this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}
+                                {itemChat.contentChat}
                                 {/* nhanh leen */}
                                 {/* {item.} */}
                               </span>
                             </div>
                           ) : (
                             <div className="info-current-friend">
-                              <span>{ this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}</span>
+                              <span>{itemChat.contentChat}</span>
                               <img
                                 src="https://randomuser.me/api/portraits/men/42.jpg"
                                 className="avatar-chat"

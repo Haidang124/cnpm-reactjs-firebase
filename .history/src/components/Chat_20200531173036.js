@@ -15,7 +15,7 @@ class Chat extends Component {
       active: 0,
       mytopics: [],
       codeCourse: [],
-      indexCourse: [],
+      indexCourse:[],
       fulldataTopics: [],
       keyTopic: [],
     };
@@ -52,7 +52,6 @@ class Chat extends Component {
   //     }
   // }
   async componentDidMount() {
- 
     // await db
     // .collection("topics")
     // .get()
@@ -61,45 +60,11 @@ class Chat extends Component {
     //     this.state.fulldataTopics.push(doc.data());
     //   });
     // });
-    await db
-      .collection("topics")
-      .get()
-      .then((querySnapshot) => {
+     await db.collection('topics').get().then((querySnapshot) => {
         querySnapshot.forEach((doc) => {
-          this.state.fulldataTopics[doc.id] = doc.data();
-        });
-      });
-      await db.collection("topics")
-      .onSnapshot((snapshot) =>{
-        db
-      .collection("topics")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // console.log(doc.data())
-          this.state.fulldataTopics[doc.id] = doc.data();
-          console.log(this.state.fulldataTopics)
-          // this.setState({
-          //   fulldataTopics:{id :doc.id ,...doc.data()}
-          // })
-        });
-      });
-      //   console.log("snapshot1")
-      //  console.log(snapshot)
-      });
-    // db.collection("topics").onSnapshot(function (snapshot) {
-    //   snapshot.docChanges.forEach( (change) =>{
-    //     if (change.type === "added") {
-    //       console.log("New order: ", change.doc.data());
-    //     }
-    //     if (change.type === "modified") {
-    //       console.log("Modified order: ", change.doc.data());
-    //     }
-    //     if (change.type === "removed") {
-    //       console.log("Removed order: ", change.doc.data());
-    //     }
-    //   });
-    // });
+           this.state.fulldataTopics[doc.id]=doc.data();
+        })
+     })
     await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
@@ -114,9 +79,31 @@ class Chat extends Component {
         //         currentChat:doc.data().mychat[0]
         //     })
         //}
-        // console.log(this.state.fulldataTopics[this.state.codeCourse])
+        console.log(this.state.fulldataTopics[this.state.codeCourse])
+        // if(this.state.codeCourse =="ELT2035" )
+        // {
+        //   this.setState({
+        //     indexCourse:0
+        //   })
+        // }
+        // else if(this.state.codeCourse =="INT2208" ){
+        //   this.setState({
+        //     indexCourse:1
+        //   })
+        // }
+        // else if(this.state.codeCourse =="INT2209" ){
+        //   this.setState({
+        //     indexCourse:2
+        //   })
+        // }
+        // else if(this.state.codeCourse =="PES2028" ){
+        //   this.setState({
+        //     indexCourse:3
+        //   })
+        // }
       });
-
+     
+   
     // await db.collection('topics').get().then((querySnapshot) => {
     //     querySnapshot.forEach((doc) => {
     //        this.state.fulldataTopics[doc.id]=doc.data();
@@ -134,7 +121,7 @@ class Chat extends Component {
     //  })
   }
   render() {
-    console.log(this.state.fulldataTopics)
+    // console.log(this.state.fulldataTopics)
     // console.log(this.state.fulldataTopics[0])
     // console.log(this.state.keyTopic);
     return (
@@ -221,71 +208,46 @@ class Chat extends Component {
                 </div>
               </div>
               <div className="list-content-chat">
-                {/* <div className="info-current">
+                <div className="info-current">
                   <img
                     src="https://randomuser.me/api/portraits/men/44.jpg"
                     className="avatar-chat"
                     alt=""
                   />
                   <span>
-                   
+                    {/* {item.Chat[0].contentChat} */}
                     nhanh leen cai
+                    {/* {item.} */}
                   </span>
-                </div> */}
+                </div>
                 {this.state.fulldataTopics[this.state.codeCourse] ? (
                   this.state.fulldataTopics[this.state.codeCourse].topic.map(
                     (item, key) =>
                       item.keyTopic == this.state.keyTopic ? (
-                        item.Chat.map((itemChat, keyChat) =>
-                          itemChat.uidChat == store.getState().userAuth.uid ? (
-                            <div className="info-current">
-                              <img
-                                src="https://randomuser.me/api/portraits/men/44.jpg"
-                                className="avatar-chat"
-                                alt=""
-                              />
-                              <span>
-                                {/* {itemChat.contentChat} */}
-                                { this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}
-                                {/* nhanh leen */}
-                                {/* {item.} */}
-                              </span>
-                            </div>
-                          ) : (
-                            <div className="info-current-friend">
-                              <span>{ this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}</span>
-                              <img
-                                src="https://randomuser.me/api/portraits/men/42.jpg"
-                                className="avatar-chat"
-                                alt=""
-                              />
-                            </div>
-                          )
-                        )
+                        <div className="info-current">
+                          <img
+                            src="https://randomuser.me/api/portraits/men/44.jpg"
+                            className="avatar-chat"
+                            alt=""
+                          />
+                          <span>
+                            {/* {item.Chat[0].contentChat} */}
+                            nhanh leen
+                            {/* {item.} */}
+                          </span>
+                        </div>
                       ) : (
-                        //  itemChat.uidChat == store.getState().userAuth.uid ? ():(<p></p>)
-                        // <div className="info-current">
-                        //   <img
-                        //     src="https://randomuser.me/api/portraits/men/44.jpg"
-                        //     className="avatar-chat"
-                        //     alt=""
-                        //   />
-                        //   <span>
-                        //     {item.Chat[0].contentChat}
-                        //     {/* nhanh leen */}
-                        //     {/* {item.} */}
-                        //   </span>
-                        // </div>
-                        <p></p>
-                        // <div className="info-current-friend">
-                        //   <span>
-                        //   </span>
-                        //   <img
-                        //     src="https://randomuser.me/api/portraits/men/42.jpg"
-                        //     className="avatar-chat"
-                        //     alt=""
-                        //   />
-                        // </div>
+                        <div className="info-current-friend">
+                          <span>
+                            {/* {item.Chat[0].contentChat} */}
+                            {/* {alert(item.creator)} */}
+                          </span>
+                          <img
+                            src="https://randomuser.me/api/portraits/men/42.jpg"
+                            className="avatar-chat"
+                            alt=""
+                          />
+                        </div>
                       )
                   )
                 ) : (

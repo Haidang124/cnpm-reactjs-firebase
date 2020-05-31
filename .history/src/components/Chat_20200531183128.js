@@ -78,7 +78,6 @@ class Chat extends Component {
         querySnapshot.forEach((doc) => {
           // console.log(doc.data())
           this.state.fulldataTopics[doc.id] = doc.data();
-          console.log(this.state.fulldataTopics)
           // this.setState({
           //   fulldataTopics:{id :doc.id ,...doc.data()}
           // })
@@ -246,14 +245,14 @@ class Chat extends Component {
                               />
                               <span>
                                 {/* {itemChat.contentChat} */}
-                                { this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}
+                                { this.state.fulldataTopics[this.state.codeCourse].topic[key].}
                                 {/* nhanh leen */}
                                 {/* {item.} */}
                               </span>
                             </div>
                           ) : (
                             <div className="info-current-friend">
-                              <span>{ this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}</span>
+                              <span>{itemChat.contentChat}</span>
                               <img
                                 src="https://randomuser.me/api/portraits/men/42.jpg"
                                 className="avatar-chat"

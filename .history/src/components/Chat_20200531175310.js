@@ -52,7 +52,6 @@ class Chat extends Component {
   //     }
   // }
   async componentDidMount() {
- 
     // await db
     // .collection("topics")
     // .get()
@@ -69,37 +68,6 @@ class Chat extends Component {
           this.state.fulldataTopics[doc.id] = doc.data();
         });
       });
-      await db.collection("topics")
-      .onSnapshot((snapshot) =>{
-        db
-      .collection("topics")
-      .get()
-      .then((querySnapshot) => {
-        querySnapshot.forEach((doc) => {
-          // console.log(doc.data())
-          this.state.fulldataTopics[doc.id] = doc.data();
-          console.log(this.state.fulldataTopics)
-          // this.setState({
-          //   fulldataTopics:{id :doc.id ,...doc.data()}
-          // })
-        });
-      });
-      //   console.log("snapshot1")
-      //  console.log(snapshot)
-      });
-    // db.collection("topics").onSnapshot(function (snapshot) {
-    //   snapshot.docChanges.forEach( (change) =>{
-    //     if (change.type === "added") {
-    //       console.log("New order: ", change.doc.data());
-    //     }
-    //     if (change.type === "modified") {
-    //       console.log("Modified order: ", change.doc.data());
-    //     }
-    //     if (change.type === "removed") {
-    //       console.log("Removed order: ", change.doc.data());
-    //     }
-    //   });
-    // });
     await db
       .collection("users")
       .doc(store.getState().userAuth.uid)
@@ -134,7 +102,7 @@ class Chat extends Component {
     //  })
   }
   render() {
-    console.log(this.state.fulldataTopics)
+    // console.log(this.state.fulldataTopics)
     // console.log(this.state.fulldataTopics[0])
     // console.log(this.state.keyTopic);
     return (
@@ -245,15 +213,14 @@ class Chat extends Component {
                                 alt=""
                               />
                               <span>
-                                {/* {itemChat.contentChat} */}
-                                { this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}
+                                {itemChat.contentChat}
                                 {/* nhanh leen */}
                                 {/* {item.} */}
                               </span>
                             </div>
                           ) : (
                             <div className="info-current-friend">
-                              <span>{ this.state.fulldataTopics[this.state.codeCourse].topic[key].Chat[keyChat].contentChat}</span>
+                              <span>{itemChat.contentChat}</span>
                               <img
                                 src="https://randomuser.me/api/portraits/men/42.jpg"
                                 className="avatar-chat"

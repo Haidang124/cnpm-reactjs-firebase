@@ -78,7 +78,7 @@ class Chat extends Component {
         querySnapshot.forEach((doc) => {
           // console.log(doc.data())
           this.state.fulldataTopics[doc.id] = doc.data();
-          console.log(this.state.fulldataTopics)
+          console
           // this.setState({
           //   fulldataTopics:{id :doc.id ,...doc.data()}
           // })
