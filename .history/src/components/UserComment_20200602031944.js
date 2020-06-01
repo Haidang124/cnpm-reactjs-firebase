@@ -158,7 +158,6 @@ class UserComment extends Component {
                 keyComment={item.keyComment}
                 uidComment
                 key={key}
-                photoURL={item.photoURL}
                 />
               ))
             ) : (

@@ -60,7 +60,9 @@ class CourseDetail extends Component {
       processTaskProject:[],
       fileProject :[],
       Chat:[],
-      photoURL:store.getState().userProfile.photoURL,
+      photoURL:store.getState().userProfile.firstName +
+      " " +
+      store.getState().userProfile.lastName,
     };
     console.log(newTopic);
     this.state.topic.push(newTopic);
@@ -260,7 +262,6 @@ class CourseDetail extends Component {
       keyPost: keyPost,
       uidUser: store.getState().userAuth.uid,
       comment: [],
-      photoURL:store.getState().userProfile.photoURL
     });
     var newPost = {
       post: this.state.post,
@@ -309,7 +310,6 @@ class CourseDetail extends Component {
               keyPost={item.keyPost}
               uidUser={item.uidUser}
               key={key}
-              photoURL={item.photoURL}
               removePost={(keyPost, uidUser) =>
                 this.removePost(keyPost, uidUser)
               }

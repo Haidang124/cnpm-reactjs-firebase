@@ -53,7 +53,6 @@ class Comment extends Component {
           keyComment: keyComment,
           indexPost: key,
           replycomment: [],
-          photoURL:store.getState().userProfile.photoURL
         });
         var newPost = {
           post: this.state.fullPost,
@@ -110,8 +109,8 @@ class Comment extends Component {
           <div className="info-comment">
             <div className="logo">
               <img
-                 src ={this.props.photoURL ? this.props.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
-                // src ={this.props.photoURL}
+                //  src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                src =Ơthis.props.userPost
                 alt=""
                 className="logo"
               />
@@ -174,7 +173,6 @@ class Comment extends Component {
                   keyPost={this.props.keyPost}
                   codeCourse={this.props.codeCourse}
                   contentComment={item.content}
-                  photoURL={item.photoURL}
                   userComment={item.user}
                   keyComment={item.keyComment}
                   key={key}

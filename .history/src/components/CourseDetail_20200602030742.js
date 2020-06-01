@@ -308,8 +308,8 @@ class CourseDetail extends Component {
               userPost={item.user}
               keyPost={item.keyPost}
               uidUser={item.uidUser}
-              key={key}
-              photoURL={item.photoURL}
+              key={key},
+              photoURL={}
               removePost={(keyPost, uidUser) =>
                 this.removePost(keyPost, uidUser)
               }

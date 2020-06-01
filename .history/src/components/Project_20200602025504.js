@@ -28,6 +28,7 @@ class Project extends Component {
       <div className="project">
         <Menu />
         <div className="content-right">
+
           <Nav />
           <div className="container-project">
             <div className="all-project">

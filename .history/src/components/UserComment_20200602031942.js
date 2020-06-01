@@ -119,6 +119,7 @@ class UserComment extends Component {
             //  src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
             // src ={this.props.photoURL}
             src ={this.props.photoURL ? this.props.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+           
             alt=""
             className="logo"
           />
@@ -158,7 +159,6 @@ class UserComment extends Component {
                 keyComment={item.keyComment}
                 uidComment
                 key={key}
-                photoURL={item.photoURL}
                 />
               ))
             ) : (

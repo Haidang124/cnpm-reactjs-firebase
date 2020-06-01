@@ -69,12 +69,12 @@ class Menu extends Component {
           </div>
           <div className="left-bottom">
             <ul>
-              {/* <Submenu
+              <Submenu
                 lefticon="fas fa-home"
                 nametask="Home"
                 righticon="fas fa-align-justify"
                 active=""
-              /> */}
+              />
               <Submenu
                 lefticon="fas fa-users"
                 nametask="Courses"

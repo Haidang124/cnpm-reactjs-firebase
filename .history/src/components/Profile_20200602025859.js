@@ -83,7 +83,7 @@ class Profile extends Component {
       if (msvNew != "" && firstNew != "" && lastNew != "") {
         console.log(this.state.photoURL);
         db.collection("users").doc(this.state.uid).update(currentInfo);
-        alert("Thay đổi thành công ");
+        ale("Thay đổi thành công ");
       } else {
         alert("Vui lòng nhập đủ thông tin");
       }

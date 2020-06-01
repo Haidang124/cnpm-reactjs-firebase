@@ -53,7 +53,6 @@ class Comment extends Component {
           keyComment: keyComment,
           indexPost: key,
           replycomment: [],
-          photoURL:store.getState().userProfile.photoURL
         });
         var newPost = {
           post: this.state.fullPost,

@@ -175,7 +175,7 @@ class Chat extends Component {
     return (
       <div className="chat">
         <Menu />
-        <div className="content-right">
+        <div >
           <Nav />
           <div className="chat-container">
             <div className="list-chat">
