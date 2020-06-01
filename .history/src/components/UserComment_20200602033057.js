@@ -19,7 +19,7 @@ class UserComment extends Component {
       },
     };
   }
- 
+  remot
   replyFocus = (type) => {
     document.getElementById(this.props.keyComment).type = type;
     this.props.focus();
@@ -111,7 +111,7 @@ class UserComment extends Component {
       });
   }
   render() {
-    // alert(this.props.uidUser)
+    
     return (
       <div className="user-comment">
         <div className="content-comment">
@@ -137,7 +137,7 @@ class UserComment extends Component {
               <span className="reply-user">1 minute ago</span>
               <span
                 className="reply-user"
-                onClick={()=>this.props.removeComment()}
+                onClick={() => alert(this.props.indexComment)}
               >
                 {" "}
                 Xóa

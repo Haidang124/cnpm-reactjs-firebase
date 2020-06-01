@@ -111,7 +111,7 @@ class UserComment extends Component {
       });
   }
   render() {
-    // alert(this.props.uidUser)
+    alert(this.props.uidUser)
     return (
       <div className="user-comment">
         <div className="content-comment">

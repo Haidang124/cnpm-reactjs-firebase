@@ -137,7 +137,7 @@ class UserComment extends Component {
               <span className="reply-user">1 minute ago</span>
               <span
                 className="reply-user"
-                onClick={()=>this.props.removeComment()}
+                onClick={()=>this.props.removeComment}
               >
                 {" "}
                 Xóa

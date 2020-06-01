@@ -36,24 +36,8 @@ class Comment extends Component {
       isOpenModal: !this.state.isOpenModal,
     });
   };
-  removeComment =(indexComment,uid)=>{
-    // alert(indexComment)
-    // alert(uid)
-    if (uid === store.getState().userAuth.uid) {
-      alert("Xóa thành công");
-    this.state.fullPost.map((item, key) => {
-      if (item.keyPost == this.props.keyPost) {
+  removeComment =(indexComment)=>{
 
-        this.state.fullPost[key].comment.splice(indexComment, 1);
-        var newPost = {
-          post: this.state.fullPost,
-        };
-        this.props.updateFirebase("courses", this.props.codeCourse, newPost);
-      }
-    });
-  }else{
-    alert("Bạn không thể xóa bình luận của người khác");
-  }
   }
   addNewComment = async () => {
     var contentComment = document.getElementById(this.props.keyPost).value;
@@ -72,7 +56,6 @@ class Comment extends Component {
           keyComment: keyComment,
           indexPost: key,
           replycomment: [],
-          uidComment:store.getState().userAuth.uid,
           photoURL:store.getState().userProfile.photoURL
         });
         var newPost = {
@@ -197,9 +180,7 @@ class Comment extends Component {
                   photoURL={item.photoURL}
                   userComment={item.user}
                   keyComment={item.keyComment}
-                  uidUser={item.uidComment}
                   key={key}
-                  removeComment={() => this.removeComment(key,item.uidComment)}
                   focus={() => this.focus(item.keyComment)}
                 />
               ))

@@ -38,7 +38,7 @@ class Comment extends Component {
   };
   removeComment =(indexComment,uid)=>{
     // alert(indexComment)
-    // alert(uid)
+    alert(uid)
     if (uid === store.getState().userAuth.uid) {
       alert("Xóa thành công");
     this.state.fullPost.map((item, key) => {
@@ -199,7 +199,7 @@ class Comment extends Component {
                   keyComment={item.keyComment}
                   uidUser={item.uidComment}
                   key={key}
-                  removeComment={() => this.removeComment(key,item.uidComment)}
+                  removeComment={(indexComment) => this.removeComment(key,item.uidUser)}
                   focus={() => this.focus(item.keyComment)}
                 />
               ))

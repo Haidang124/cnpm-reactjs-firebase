@@ -38,7 +38,7 @@ class Comment extends Component {
   };
   removeComment =(indexComment,uid)=>{
     // alert(indexComment)
-    // alert(uid)
+    alert(uid)
     if (uid === store.getState().userAuth.uid) {
       alert("Xóa thành công");
     this.state.fullPost.map((item, key) => {

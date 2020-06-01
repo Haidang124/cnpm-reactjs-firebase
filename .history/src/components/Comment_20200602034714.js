@@ -38,13 +38,12 @@ class Comment extends Component {
   };
   removeComment =(indexComment,uid)=>{
     // alert(indexComment)
-    // alert(uid)
     if (uid === store.getState().userAuth.uid) {
       alert("Xóa thành công");
     this.state.fullPost.map((item, key) => {
       if (item.keyPost == this.props.keyPost) {
 
-        this.state.fullPost[key].comment.splice(indexComment, 1);
+        this.state.fullPost[key].comment.splice(key, 1);
         var newPost = {
           post: this.state.fullPost,
         };
@@ -52,7 +51,7 @@ class Comment extends Component {
       }
     });
   }else{
-    alert("Bạn không thể xóa bình luận của người khác");
+
   }
   }
   addNewComment = async () => {
@@ -72,7 +71,6 @@ class Comment extends Component {
           keyComment: keyComment,
           indexPost: key,
           replycomment: [],
-          uidComment:store.getState().userAuth.uid,
           photoURL:store.getState().userProfile.photoURL
         });
         var newPost = {
@@ -197,9 +195,8 @@ class Comment extends Component {
                   photoURL={item.photoURL}
                   userComment={item.user}
                   keyComment={item.keyComment}
-                  uidUser={item.uidComment}
                   key={key}
-                  removeComment={() => this.removeComment(key,item.uidComment)}
+                  removeComment={(indexComment,uid) => this.removeComment(indexComment,uid)}
                   focus={() => this.focus(item.keyComment)}
                 />
               ))
