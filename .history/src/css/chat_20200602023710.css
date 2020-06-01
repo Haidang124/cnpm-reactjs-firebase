@@ -225,12 +225,8 @@
   left: 12px;
   
 }
-.name-friend-chat{
+.name-friend-chat .na{
   font-weight: bold;
   color: #4267b2;
-}
-.my-name-chat{
-  font-weight: bold;
-  /* color: white; */
 }
 /*# sourceMappingURL=index4.css.map */

@@ -39,8 +39,7 @@ class Chat extends Component {
     var newMessage = {
       contentChat: contentChat,
       uidChat: store.getState().userAuth.uid,
-      photoURL:store.getState().userProfile.photoURL,
-      username:store.getState().userProfile.firstName + " " + store.getState().userProfile.lastName
+      photoURL:store.getState().userAuth.photoURL,
     };
     this.state.fulldataTopics[this.state.codeCourse].topic.map((item, key) => {
       if (item.keyTopic == this.state.keyTopic) {
@@ -301,23 +300,17 @@ class Chat extends Component {
                             <div className="info-current-friend">
                               <span>
                                 {
-                                  
                                   this.state.fulldataTopics[
                                     this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].contentChat+ " :" 
+                                  ].topic[key].Chat[keyChat].contentChat
                                 }
-                                <span className="name-friend-chat">{this.state.fulldataTopics[
-                                    this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].username}</span>
                               </span>
                               {/* <span> {itemChat.contentChat}</span> */}
                               <img
                                 // src="https://randomuser.me/api/portraits/men/42.jpg"
                                 src ={ this.state.fulldataTopics[
                                   this.state.codeCourse
-                                ].topic[key].Chat[keyChat].photoURL ?  this.state.fulldataTopics[
-                                  this.state.codeCourse
-                                ].topic[key].Chat[keyChat].photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                                ].topic[key].Chat[keyChat].contentChat ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
                                 className="avatar-chat"
                                 alt=""
                               />

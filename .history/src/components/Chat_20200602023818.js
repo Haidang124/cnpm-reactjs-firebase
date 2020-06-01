@@ -288,7 +288,11 @@ class Chat extends Component {
                               <span>
                                 {/* {itemChat.contentChat} */}
                                 {/* {console.log(itemChat)} */}
+                          <span className=".my-name-chat">{this.state.fulldataTopics[
+                                    this.state.codeCourse
+                                  ].topic[key].Chat[keyChat].username}</span>
                                 {
+                                  " : "+
                                   this.state.fulldataTopics[
                                     this.state.codeCourse
                                   ].topic[key].Chat[keyChat].contentChat

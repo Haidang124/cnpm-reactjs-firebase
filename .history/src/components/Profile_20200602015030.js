@@ -19,7 +19,7 @@ class Profile extends Component {
       msv: store.getState().userProfile.msv,
       uid: store.getState().userAuth.uid,
       photoURL: store.getState().userProfile.photoURL,
-      avatar: null,
+      avatar: {},
     };
   }
   componentDidMount() {
@@ -38,7 +38,7 @@ class Profile extends Component {
   }
   handleUpload =  (saveProfile) => {
     const { avatar } = this.state;
-    // console.log(avatar)
+    if(avatar != null){
       const uploadTask = storage.ref(`images/${avatar.name}`).put(avatar);
       uploadTask.on(
         "state_changed",
@@ -67,9 +67,11 @@ class Profile extends Component {
             });
         }
       );
+    }else{
+      saveProfile();
+    }
   };
   saveProfile =  () => {
-    // console.log("save")
     //  this.handleUpload().then(() => {
       var msvNew = document.getElementById("msv-new").value;
       var firstNew = document.getElementById("first-new").value;
@@ -263,7 +265,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-          <Button color="info" onClick={this.state.avatar === null ? this.saveProfile : ()=>this.handleUpload(this.saveProfile)}>
+          <Button color="info" onClick={()=>this.handleUpload(this.saveProfile)}>
             Save Changes
           </Button>
         </div>

@@ -39,8 +39,7 @@ class Chat extends Component {
     var newMessage = {
       contentChat: contentChat,
       uidChat: store.getState().userAuth.uid,
-      photoURL:store.getState().userProfile.photoURL,
-      username:store.getState().userProfile.firstName + " " + store.getState().userProfile.lastName
+      photoURL:store.getState().userAuth.photoURL,
     };
     this.state.fulldataTopics[this.state.codeCourse].topic.map((item, key) => {
       if (item.keyTopic == this.state.keyTopic) {
@@ -301,14 +300,10 @@ class Chat extends Component {
                             <div className="info-current-friend">
                               <span>
                                 {
-                                  
                                   this.state.fulldataTopics[
                                     this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].contentChat+ " :" 
+                                  ].topic[key].Chat[keyChat].contentChat
                                 }
-                                <span className="name-friend-chat">{this.state.fulldataTopics[
-                                    this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].username}</span>
                               </span>
                               {/* <span> {itemChat.contentChat}</span> */}
                               <img

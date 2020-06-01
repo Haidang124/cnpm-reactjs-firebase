@@ -19,7 +19,7 @@ class Profile extends Component {
       msv: store.getState().userProfile.msv,
       uid: store.getState().userAuth.uid,
       photoURL: store.getState().userProfile.photoURL,
-      avatar: null,
+      avatar: {},
     };
   }
   componentDidMount() {
@@ -38,38 +38,36 @@ class Profile extends Component {
   }
   handleUpload =  (saveProfile) => {
     const { avatar } = this.state;
-    // console.log(avatar)
-      const uploadTask = storage.ref(`images/${avatar.name}`).put(avatar);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          // progrss function ....
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          this.setState({ progress });
-        },
-        (error) => {
-          // error function ....
-          console.log(error);
-        },
-        () => {
-          // complete function ....
-          storage
-            .ref("images")
-            .child(avatar.name)
-            .getDownloadURL()
-            .then((url) => {
-              console.log(url);
-              this.setState({ photoURL: url });
-              console.log("url :" + this.state.photoURL);
-              saveProfile();
-            });
-        }
-      );
+    const uploadTask = storage.ref(`images/${avatar.name}`).put(avatar);
+    uploadTask.on(
+      "state_changed",
+      (snapshot) => {
+        // progrss function ....
+        const progress = Math.round(
+          (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+        );
+        this.setState({ progress });
+      },
+      (error) => {
+        // error function ....
+        console.log(error);
+      },
+      () => {
+        // complete function ....
+        storage
+          .ref("images")
+          .child(avatar.name)
+          .getDownloadURL()
+          .then((url) => {
+            console.log(url);
+            this.setState({ photoURL: url });
+            console.log("url :" + this.state.photoURL);
+            saveProfile();
+          });
+      }
+    );
   };
   saveProfile =  () => {
-    // console.log("save")
     //  this.handleUpload().then(() => {
       var msvNew = document.getElementById("msv-new").value;
       var firstNew = document.getElementById("first-new").value;
@@ -263,7 +261,7 @@ class Profile extends Component {
               </div>
             </div>
           </div>
-          <Button color="info" onClick={this.state.avatar === null ? this.saveProfile : ()=>this.handleUpload(this.saveProfile)}>
+          <Button color="info" onClick={()=>this.handleUpload(this.saveProfile}>
             Save Changes
           </Button>
         </div>

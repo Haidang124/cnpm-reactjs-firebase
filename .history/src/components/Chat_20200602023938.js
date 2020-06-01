@@ -291,6 +291,9 @@ class Chat extends Component {
                                 {
                                   this.state.fulldataTopics[
                                     this.state.codeCourse
+                                  ].topic[key].Chat[keyChat].username+" : "+
+                                  this.state.fulldataTopics[
+                                    this.state.codeCourse
                                   ].topic[key].Chat[keyChat].contentChat
                                 }
                                 {/* nhanh leen */}

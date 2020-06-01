@@ -289,6 +289,7 @@ class Chat extends Component {
                                 {/* {itemChat.contentChat} */}
                                 {/* {console.log(itemChat)} */}
                                 {
+                                  " : "+
                                   this.state.fulldataTopics[
                                     this.state.codeCourse
                                   ].topic[key].Chat[keyChat].contentChat

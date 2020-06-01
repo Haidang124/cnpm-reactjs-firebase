@@ -69,7 +69,7 @@ class Profile extends Component {
       );
   };
   saveProfile =  () => {
-    // console.log("save")
+    console.log("save")
     //  this.handleUpload().then(() => {
       var msvNew = document.getElementById("msv-new").value;
       var firstNew = document.getElementById("first-new").value;

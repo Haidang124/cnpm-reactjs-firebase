@@ -39,21 +39,25 @@ class Chat extends Component {
     var newMessage = {
       contentChat: contentChat,
       uidChat: store.getState().userAuth.uid,
-      photoURL:store.getState().userProfile.photoURL,
-      username:store.getState().userProfile.firstName + " " + store.getState().userProfile.lastName
+      photoURL: store.getState().userProfile.photoURL,
+      username:
+        store.getState().userProfile.firstName +
+        " " +
+        store.getState().userProfile.lastName,
     };
     this.state.fulldataTopics[this.state.codeCourse].topic.map((item, key) => {
       if (item.keyTopic == this.state.keyTopic) {
         // this.setState({
         //   indexTopic: key,
         // });
-        var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
+        var Newchattopic = this.state.fulldataTopics[this.state.codeCourse]
+          .topic;
         Newchattopic[key].Chat.push(newMessage);
         var newChat = {
           topic: Newchattopic,
         };
         db.collection("topics").doc(this.state.codeCourse).update(newChat);
-        document.getElementById("input-message").value="";
+        document.getElementById("input-message").value = "";
       }
     });
     // var Newchattopic = this.state.fulldataTopics[this.state.codeCourse].topic;
@@ -137,15 +141,14 @@ class Chat extends Component {
     db.collection("users")
       .doc(store.getState().userAuth.uid)
       .onSnapshot((doc) => {
-        if( doc.data().mytopics[0])
-        {
+        if (doc.data().mytopics[0]) {
           this.setState({
             mytopics: doc.data().mytopics,
             codeCourse: doc.data().mytopics[0].codeCourses,
             keyTopic: doc.data().mytopics[0].keyTopic,
           });
         }
-       
+
         // if(typeof doc.data().mychat[0] !== "undefined") {
         //     this.setState({
         //         currentChat:doc.data().mychat[0]
@@ -181,11 +184,19 @@ class Chat extends Component {
             <div className="list-chat">
               <div className="info-user-chat">
                 <img
-                   src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                  src={
+                    store.getState().userProfile.photoURL
+                      ? store.getState().userProfile.photoURL
+                      : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"
+                  }
                   className="avatar-chat"
                   alt=""
                 />
-                <span>{store.getState().userProfile.firstName + " " + store.getState().userProfile.lastName}</span>
+                <span>
+                  {store.getState().userProfile.firstName +
+                    " " +
+                    store.getState().userProfile.lastName}
+                </span>
               </div>
               <div className="input-group">
                 <input
@@ -212,7 +223,11 @@ class Chat extends Component {
                 >
                   <div className="avatar-chat-group">
                     <img
-                       src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                      src={
+                        store.getState().userProfile.photoURL
+                          ? store.getState().userProfile.photoURL
+                          : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"
+                      }
                       className="avatar-chat-small-first"
                       alt=""
                     />
@@ -234,7 +249,11 @@ class Chat extends Component {
               <div className="info-current-chat">
                 <div className="info-current-left">
                   <img
-                     src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                    src={
+                      store.getState().userProfile.photoURL
+                        ? store.getState().userProfile.photoURL
+                        : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"
+                    }
                     className="avatar-chat"
                     alt=""
                   />
@@ -281,18 +300,28 @@ class Chat extends Component {
                           itemChat.uidChat == store.getState().userAuth.uid ? (
                             <div className="info-current">
                               <img
-                                 src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                                src={
+                                  store.getState().userProfile.photoURL
+                                    ? store.getState().userProfile.photoURL
+                                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"
+                                }
                                 className="avatar-chat"
                                 alt=""
                               />
                               <span>
                                 {/* {itemChat.contentChat} */}
                                 {/* {console.log(itemChat)} */}
-                                {
+                                <span className="my-name-chat">
+                                  {
+                                    this.state.fulldataTopics[
+                                      this.state.codeCourse
+                                    ].topic[key].Chat[keyChat].username
+                                  }
+                                </span>
+                                {" : " +
                                   this.state.fulldataTopics[
                                     this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].contentChat
-                                }
+                                  ].topic[key].Chat[keyChat].contentChat}
                                 {/* nhanh leen */}
                                 {/* {item.} */}
                               </span>
@@ -300,24 +329,29 @@ class Chat extends Component {
                           ) : (
                             <div className="info-current-friend">
                               <span>
-                                {
-                                  
-                                  this.state.fulldataTopics[
-                                    this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].contentChat+ " :" 
-                                }
-                                <span className="name-friend-chat">{this.state.fulldataTopics[
-                                    this.state.codeCourse
-                                  ].topic[key].Chat[keyChat].username}</span>
+                                {this.state.fulldataTopics[
+                                  this.state.codeCourse
+                                ].topic[key].Chat[keyChat].contentChat + " :"}
+                                <span className="name-friend-chat">
+                                  {
+                                    this.state.fulldataTopics[
+                                      this.state.codeCourse
+                                    ].topic[key].Chat[keyChat].username
+                                  }
+                                </span>
                               </span>
                               {/* <span> {itemChat.contentChat}</span> */}
                               <img
                                 // src="https://randomuser.me/api/portraits/men/42.jpg"
-                                src ={ this.state.fulldataTopics[
-                                  this.state.codeCourse
-                                ].topic[key].Chat[keyChat].photoURL ?  this.state.fulldataTopics[
-                                  this.state.codeCourse
-                                ].topic[key].Chat[keyChat].photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
+                                src={
+                                  this.state.fulldataTopics[
+                                    this.state.codeCourse
+                                  ].topic[key].Chat[keyChat].photoURL
+                                    ? this.state.fulldataTopics[
+                                        this.state.codeCourse
+                                      ].topic[key].Chat[keyChat].photoURL
+                                    : "https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"
+                                }
                                 className="avatar-chat"
                                 alt=""
                               />
@@ -329,7 +363,6 @@ class Chat extends Component {
                         // <div className="info-current">
                         //   <img
                         //      src ={store.getState().userProfile.photoURL ? store.getState().userProfile.photoURL :"https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSYuIRmLMgwJRhONvJimSmKhV23zgXYSqy_7g_PZ3n1QyYF4iqw&usqp=CAU"}
-
 
                         //     className="avatar-chat"
                         //     alt=""

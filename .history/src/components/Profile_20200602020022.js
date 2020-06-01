@@ -38,38 +38,38 @@ class Profile extends Component {
   }
   handleUpload =  (saveProfile) => {
     const { avatar } = this.state;
-    // console.log(avatar)
-      const uploadTask = storage.ref(`images/${avatar.name}`).put(avatar);
-      uploadTask.on(
-        "state_changed",
-        (snapshot) => {
-          // progrss function ....
-          const progress = Math.round(
-            (snapshot.bytesTransferred / snapshot.totalBytes) * 100
-          );
-          this.setState({ progress });
-        },
-        (error) => {
-          // error function ....
-          console.log(error);
-        },
-        () => {
-          // complete function ....
-          storage
-            .ref("images")
-            .child(avatar.name)
-            .getDownloadURL()
-            .then((url) => {
-              console.log(url);
-              this.setState({ photoURL: url });
-              console.log("url :" + this.state.photoURL);
-              saveProfile();
-            });
-        }
-      );
+    console.log(avatar)
+    //   const uploadTask = storage.ref(`images/${avatar.name}`).put(avatar);
+    //   uploadTask.on(
+    //     "state_changed",
+    //     (snapshot) => {
+    //       // progrss function ....
+    //       const progress = Math.round(
+    //         (snapshot.bytesTransferred / snapshot.totalBytes) * 100
+    //       );
+    //       this.setState({ progress });
+    //     },
+    //     (error) => {
+    //       // error function ....
+    //       console.log(error);
+    //     },
+    //     () => {
+    //       // complete function ....
+    //       storage
+    //         .ref("images")
+    //         .child(avatar.name)
+    //         .getDownloadURL()
+    //         .then((url) => {
+    //           console.log(url);
+    //           this.setState({ photoURL: url });
+    //           console.log("url :" + this.state.photoURL);
+    //           saveProfile();
+    //         });
+    //     }
+    //   );
   };
   saveProfile =  () => {
-    // console.log("save")
+    console.log("save")
     //  this.handleUpload().then(() => {
       var msvNew = document.getElementById("msv-new").value;
       var firstNew = document.getElementById("first-new").value;
